@@ -2,6 +2,7 @@
 # login shells.
 
 [ -r ~/.dotfiles/env.bash ] && source ~/.dotfiles/env.bash
+[ -r ~/.dotfiles/aliases.bash ] && source ~/.dotfiles/aliases.bash
 [ -r ~/.dotfiles/prompt.bash ] && source ~/.dotfiles/prompt.bash
 [ -r ~/.dotfiles/completion.bash ] && source ~/.dotfiles/completion.bash
 
