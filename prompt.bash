@@ -79,7 +79,7 @@ PathFull="\W"
 NewLine="\n"
 Jobs="\j"
 
-
+# TODO - clean this up.
 export PS1=$IBlack$Time12h$Color_Off'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
