@@ -16,14 +16,6 @@ if [ "$(which go)" != "" ] ; then
   [ -d $GOPATH/bin ] && PATH=$PATH:$GOPATH/bin
 fi
 
-# Node, npm (if the directory is there)
-# I'd prefer to use
-#   npmpath="$(npm config get prefix)"
-# but that is WAY too slow.
-if [ -d /usr/local/share/npm/bin ] ; then
-  PATH=$PATH:$/usr/local/share/npm/bin
-fi
-
 # Ruby (with chruby)
 if [ -d /usr/local/share/chruby ] ; then
   . /usr/local/share/chruby/chruby.sh
