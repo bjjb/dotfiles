@@ -3,10 +3,6 @@ f=/usr/local/etc/bash_completion
 [ -r $f ] && . $f
 
 # Node, npm
-if [ "$(which node)" != "" ] ; then
-  f="$(node -e 'console.log(process.config.variables.node_prefix)')/lib/node_modules/npm/lib/utils/completion.sh"
-  [ -r $f ] && . $f
+if [ -r /usr/local/lib/node_modules/npm/lib/utils/completion.sh ] ; then
+  . /usr/local/lib/node_modules/npm/lib/utils/completion.sh
 fi
-
-# Clean up
-f=
