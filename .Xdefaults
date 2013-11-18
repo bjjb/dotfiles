@@ -1,0 +1,57 @@
+! xterm configuration
+! -------------------
+
+! Treat it as a login shell
+xterm*loginShell: true
+
+! 80 columns, 26 lines
+xterm*vt100*geometry: 80x26
+
+! Nice font
+xterm*faceName: DejaVu Sans Mono
+xterm*faceSize: 12
+
+! Backscroll
+xterm*saveLines: 2000
+
+! Double-click to select whole URLs :D
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+! --- special colors ---
+*background: #000b03
+*foreground: #d9e6f2
+! --- standard colors ---
+! black
+*color0: #003033
+! bright_black
+*color8: #316164
+! red
+*color1: #aa5766
+! bright_red
+*color9: #f9f3f4
+! green
+*color2: #66aa57
+! bright_green
+*color10: #f4f9f3
+! yellow
+*color3: #aa9b57
+! bright_yellow
+*color11: #f9f8f3
+! blue
+*color4: #5766aa
+! bright_blue
+*color12: #f3f4f9
+! magenta
+*color5: #9b57aa
+! bright_magenta
+*color13: #f8f3f9
+! cyan
+*color6: #57aa9b
+! bright_cyan
+*color14: #f3f9f8
+! white
+*color7: #98c8cb
+! bright_white
+*color15: #ccfcff
+
+xterm*vt100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
