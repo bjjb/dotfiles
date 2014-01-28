@@ -1,0 +1,14 @@
+#! /bin/sh
+
+dir=$PWD
+cd `dirname $0`
+files=`pwd -L`
+ln -sniv $files/.bashrc $HOME/.bashrc
+ln -sniv $files/.bash_profile $HOME/.bash_profile
+ln -sniv $files/.Xdefaults $HOME/.Xdefaults
+ln -sniv $files/.tmux.conf $HOME/.tmux.conf
+ln -sniv $files/.ctags $HOME/.ctags
+ln -sniv $files/.cvsignore $HOME/.cvsignore
+ln -sniv $files/.vim $HOME/.vim
+ln -sniv $files/.vimrc $HOME/.vimrc
+cd $dir
