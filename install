@@ -11,4 +11,5 @@ ln -sniv $files/.ctags $HOME/.ctags
 ln -sniv $files/.cvsignore $HOME/.cvsignore
 ln -sniv $files/.vim $HOME/.vim
 ln -sniv $files/.vimrc $HOME/.vimrc
+git submodule update
 cd $dir
