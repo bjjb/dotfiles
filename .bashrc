@@ -2,6 +2,11 @@
 # login shells.
 
 GOPATH=$HOME/go
+
+if [ -d $HOME/bin ]; then
+  PATH=$HOME/bin:$PATH
+fi
+
 PATH=$PATH:$HOME/go/bin
 
 if [ -e /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
@@ -14,5 +19,5 @@ fi
 # Local environment overrides
 [ -e $HOME/.env ] && . $HOME/.env
 
-# Anything potentially slow and non-essential for a non-interactive session
+# Anything potentially slow and non-essential in a non-interactive session
 # should be loaded in .bash_profile instead.
