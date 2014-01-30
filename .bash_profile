@@ -3,10 +3,24 @@
 [ -r ~/.bashrc ] && . ~/.bashrc
 [ -e /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-cloud=Dropbox
+CLOUDDIR=Dropbox
 
-if [ -d $HOME/$cloud ]; then
-  d=$HOME/$cloud
-
-  [ -f $d/TODO ] && cat $d/TODO
+if [ -d $HOME/$CLOUDDIR ]; then
+  # Showing this early, to be read while other things are happening
+  [ -f $HOME/$CLOUDDIR/TODO ] && cat $HOME/$CLOUDDIR/TODO
 fi
+
+grey="\[\033[1;30m\]"
+light_grey="\[\033[0;37m\]"
+cyan="\[\033[0;36m\]"
+light_cyan="\[\033[1;36m\]"
+no_colour="\[\033[0m\]"
+
+GIT_PS1_SHOWCOLORHINTS=1
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUPSTREAM="verbose name git"
+GIT_PS1_DESCRIBESTYLE=default
+
+PROMPT_COMMAND='__git_ps1 "$light_cyan\u$light_grey@$grey\h:$cyan\w$no_colour" "$light_grey\\\$$no_colour "'
