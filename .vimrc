@@ -8,6 +8,7 @@ execute pathogen#infect()
 set tw=78 ts=2 sw=2 et
 
 syntax on
+set number
 filetype plugin indent on
 
 " vi:ft=vim

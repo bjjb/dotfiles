@@ -1,13 +1,15 @@
 # Loaded automatically for non-login shells, and sourced by .bash_profile for
 # login shells.
 
-GOPATH=$HOME/go
 
 if [ -d $HOME/bin ]; then
   PATH=$HOME/bin:$PATH
 fi
 
-PATH=$PATH:$HOME/go/bin
+if [ -d $HOME/go ]; then
+  export GOPATH=$HOME/go
+  PATH=$PATH:$HOME/go/bin
+fi
 
 if [ -e /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
   source /usr/local/opt/chruby/share/chruby/chruby.sh
@@ -22,5 +24,6 @@ fi
 # Anything potentially slow and non-essential in a non-interactive session
 # should be loaded in .bash_profile instead.
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+if [ -d /usr/local/heroku/bin ]; then
+  PATH=$PATH:/usr/local/heroku/bin
+fi
