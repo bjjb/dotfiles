@@ -8,7 +8,7 @@ fi
 
 if [ -d $HOME/go ]; then
   export GOPATH=$HOME/go
-  PATH=$PATH:$HOME/go/bin
+  PATH=$PATH:$GOPATH/bin
 fi
 
 if [ -e /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
