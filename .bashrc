@@ -1,7 +1,6 @@
 # Loaded automatically for non-login shells, and sourced by .bash_profile for
 # login shells.
 
-
 if [ -d $HOME/bin ]; then
   PATH=$HOME/bin:$PATH
 fi
@@ -20,6 +19,9 @@ fi
 
 # Local environment overrides
 [ -e $HOME/.env ] && . $HOME/.env
+
+# Locale settings
+export LANG="en_US.UTF-8"
 
 # Anything potentially slow and non-essential in a non-interactive session
 # should be loaded in .bash_profile instead.
