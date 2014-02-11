@@ -3,16 +3,16 @@
 dir=$PWD
 cd `dirname $0`
 files=`pwd -L`
-ln -snfv $files/.bashrc $HOME/.bashrc
-ln -snfv $files/.bash_profile $HOME/.bash_profile
-ln -snfv $files/.Xdefaults $HOME/.Xdefaults
-ln -snfv $files/.tmux.conf $HOME/.tmux.conf
+ln -snFv $files/.bashrc $HOME/.bashrc
+ln -snFv $files/.bash_profile $HOME/.bash_profile
+ln -snFv $files/.Xdefaults $HOME/.Xdefaults
+ln -snFv $files/.tmux.conf $HOME/.tmux.conf
 ln -snfv $files/.ctags $HOME/.ctags
-ln -snfv $files/.cvsignore $HOME/.cvsignore
-ln -snfv $files/.vim $HOME/.vim
-ln -snfv $files/.vimrc $HOME/.vimrc
-ln -snfv $files/.irbrc $HOME/.irbrc
-ln -snfv $files/bin $HOME
+ln -snFv $files/.cvsignore $HOME/.cvsignore
+ln -snFv $files/.vim $HOME/.vim
+ln -snFv $files/.vimrc $HOME/.vimrc
+ln -snFv $files/.irbrc $HOME/.irbrc
+ln -snFv $files/bin $HOME
 git submodule init
 git submodule update --recursive
 cd $dir
