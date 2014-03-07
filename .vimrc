@@ -35,4 +35,11 @@ let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
 
+" Command-mode editing
+:cnoremap <C-A> <Home>
+:cnoremap <C-F> <Right>
+:cnoremap <C-B> <Left>
+:cnoremap <Esc>b <S-Left>
+:cnoremap <Esc>f <S-Right>
+
 " vi:ft=vim
