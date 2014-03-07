@@ -7,7 +7,8 @@ fi
 
 if [ -d $HOME/go ]; then
   export GOPATH=$HOME/go
-  PATH=$PATH:$GOPATH/bin
+  GOROOT=`go env GOROOT`
+  PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
 if [ -e /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
@@ -17,15 +18,15 @@ if [ -e /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
   fi
 fi
 
-# Local environment overrides
-[ -e $HOME/.env ] && . $HOME/.env
-
 # Locale settings
 export LANG="en_US.UTF-8"
-
-# Anything potentially slow and non-essential in a non-interactive session
-# should be loaded in .bash_profile instead.
 
 if [ -d /usr/local/heroku/bin ]; then
   PATH=$PATH:/usr/local/heroku/bin
 fi
+
+# Local environment overrides
+[ -e $HOME/.env ] && . $HOME/.env
+
+# Anything potentially slow and non-essential in a non-interactive session
+# should be loaded in .bash_profile instead.
