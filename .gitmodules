@@ -88,3 +88,6 @@
 [submodule ".vim/bundle/gist-vim"]
 	path = .vim/bundle/gist-vim
 	url = https://github.com/mattn/gist-vim
+[submodule ".vim/bundle/vim-projectile"]
+	path = .vim/bundle/vim-projectile
+	url = https://github.com/tpope/vim-projectile
