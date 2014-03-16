@@ -1,0 +1,3 @@
+#! /bin/sh
+# A silly but surprisingly useful script to preview command-line arguments.
+printf ":%s:\n" "$@"

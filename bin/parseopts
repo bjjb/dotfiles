@@ -1,0 +1,59 @@
+#! /bin/bash
+# Dicking around with optparse. $OPTARG and $OPTIND are made available by
+# optparse.
+progname=${0##*/}
+
+# Defaults
+verbose=0
+filename=
+
+# Acceptible options - options that take arguments are followed by a colon
+optstring=f:v
+
+while getopts $optstring opt
+do
+  case $opt in
+    f) filename=$OPTARG             ;;
+    v) verbose=$(( $verbose + 1 ))  ;;
+    *) exit 1                       ;;
+  esac
+done
+
+# Remove options from the command-line
+shift "$(( $OPTIND - 1))"
+
+# Check for a filename
+if [ -n "$filename" ]
+then
+  if [ $verbose -gt 0 ]
+  then
+    printf "Filename is %s\n" "$filename"
+  fi
+else
+  if [ $verbose -gt 0 ]
+  then
+    printf "No filename entered\n" >&2
+  fi
+  exit 1
+fi
+
+# Check whether a file exists
+if [ -f "$filename" ]
+then
+  if [ $verbose -gt 0 ]
+  then
+    printf "Filename %s found\n" "$filename"
+  fi
+else
+  if [ $verbose -gt 0 ]
+  then
+    printf "Filename %s not found!\n" "$filename" >&2
+  fi
+  exit 2
+fi
+
+# Now just print the number of arguments
+if [ $verbose -gt 0 ]
+then
+  printf "Number of arguments: %d\n" "$#"
+fi

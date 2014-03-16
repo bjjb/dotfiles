@@ -1,0 +1,11 @@
+#! /bin/bash
+
+# Converts a number of seconds to days, hours, minutes and seconds.
+d=$(( $1 / (60 * 60 * 24) ))
+s=$(( $1 % (60 * 60 * 24) ))
+h=$(( $s / (60 * 60) ))
+s=$(( $s % (60 * 60) ))
+m=$(( $s / 60 ))
+s=$(( $s % 60 ))
+
+printf "%d:%02d:%02d:%02d\n" "$d" "$h" "$m" "$s"
