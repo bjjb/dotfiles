@@ -9,6 +9,10 @@ if [ -d $HOME/go ]; then
   export GOPATH=$HOME/go
   GOROOT=`go env GOROOT`
   PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+elif [ -d $HOME/code/go ]; then
+  export GOPATH=$HOME/code/go
+  GOROOT=`go env GOROOT`
+  PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
 if [ -e /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
