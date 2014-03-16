@@ -6,6 +6,7 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 set tw=78 ts=2 sw=2 et
+set visualbell
 
 syntax on
 set number
