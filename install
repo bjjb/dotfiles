@@ -12,6 +12,7 @@ ln -snFv $files/.cvsignore $HOME/.cvsignore
 ln -snFv $files/.vim $HOME/.vim
 ln -snFv $files/.vimrc $HOME/.vimrc
 ln -snFv $files/.irbrc $HOME/.irbrc
+ln -snFv $files/.gemrc $HOME/.gemrc
 ln -snFv $files/bin $HOME
 git submodule init
 git submodule update --recursive
