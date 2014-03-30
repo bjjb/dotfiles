@@ -1,0 +1,196 @@
+#!/usr/bin/env ruby -ws
+
+# https://gist.github.com/7587701
+require 'open-uri'
+require 'nokogiri'
+require 'yaml'
+require 'pathname'
+require 'ostruct'
+require 'pp'
+require 'forwardable'
+require 'minitest/unit'
+
+
+# A FeedMe has an array of Feeds; when it is "call"ed, it "calls" each
+# of them in turn. Each Feed is created from a hash of options.
+class FeedMe
+  def each(&block)
+    feeds.each do
+      matches.each do
+        yield match
+      end
+    end
+  end
+  include Enumerable
+
+  def initialize(feeds)
+    @feeds = feeds.map { |f| f.symbolize_keys }
+  end
+
+  def feeds
+    @feeds.map { |f| Feed.new(f) }
+  end
+
+  def parser
+    @parser ||= parsers[*(super || :rss).to_sym]
+  end
+
+  def parse
+    instance_eval(&parser)
+  end
+
+  def self.parsers(*args)
+    @parsers ||= Hash.new { |h, k| h[k] = Module.new }
+  end
+
+  class Feed
+    extend Forwardable
+
+    def initialize(config)
+      @config = config.symbolize_keys
+    end
+
+    def xml
+      return @xml if instance_variable_defined?(:"@xml")
+      @xml = Nokogiri::XML(read) rescue nil
+    end
+
+    def method_missing(m, *args, &block)
+      return @config[m] if @config.key?(m)
+      return xml.send(m, *args, &block) if xml and xml.respond_to?(m)
+      super
+    end
+
+    def read
+      return "" if feed.nil?
+      return feed.read if feed.respond_to?(:read)
+      open(feed).read rescue feed
+    end
+
+    def self.match(s)
+      Regexp.new(Time.now.strftime(s))
+    end
+  end
+end
+
+class Hash
+  def symbolize_keys
+    {}.tap { |r| each { |k, v| r[k.to_sym] = v } }
+  end unless instance_methods.include?(:symbolize_keys)
+
+  def stringify_keys
+    {}.tap { |r| each { |k, v| r[k.to_s] = v } }
+  end unless instance_methods.include?(:stringify_keys)
+end
+
+class FeedMeTest < MiniTest::Unit::TestCase
+  def setup
+  end
+
+  def test_the_matches_method
+    m = Time.stub(:now, Time.new(2000)) { FeedMe::Feed.match("={1,2}%Y-*") }
+    assert_match m, "=2000"
+    refute_match m, "=2001"
+    assert_match m, "==2000--"
+    refute_match m, "2000"
+    assert_match m, "Hello =2000 world"
+    refute_match m, "something else"
+  end
+
+  def test_creation_of_a_FeedMe
+    assert_empty FeedMe.new([]).feeds
+  end
+
+  def test_FeedMe_is_enumerable
+    fm = FeedMe.new([{x: :a}, {x: :b}, {x: :c}])
+    fm.each { |f| assert_kind_of FeedMe::Feed, f }
+    assert_kind_of FeedMe::Feed, fm.first
+    assert_equal %i[a b c], fm.map(&:x)
+  end
+
+  def test_Feed_quacks_like_an_IO
+    f = FeedMe::Feed.new(feed: __FILE__)
+    assert_equal open(__FILE__).read, f.read
+  end
+
+  def test_an_xml_Feed_quacks_like_a_Nokogiri_document
+    feed = "<a><b>foo</b></a>"
+    f = FeedMe::Feed.new(feed: feed)
+    assert_equal 'foo', (f % "b").text
+    feed = StringIO.new("<a><b>bar</b></a>")
+    f = FeedMe::Feed.new(feed: feed)
+    assert_equal 'bar', (f % "b").text
+  end
+
+  def test_a_Feed_can_show_its_title
+    f = FeedMe::Feed.new(feed: DATA)
+    assert_equal "News", f.title
+  end
+
+  def test_command_line
+    assert_match %x[#{__FILE__} -V].strip, /^feedme v/
+  end
+end
+
+if __FILE__ == $0
+  puts "feedme v0.0.1" if defined?($V)
+  $verbose = defined?($v)
+  require 'minitest/autorun' if defined?($t)
+  if defined?($h)
+    puts (<<-EOF)
+feedme - do stuff with feeds
+Usage:
+  feedme [config]   run feedme (default config is ~/.feedme/config)
+  feedme -v         print the version
+  feedme -t         run a test suite
+  feedme -h         print this message
+    EOF
+    exit 0
+  end
+
+  ARGV << "~/.feedme/config" if ARGV.empty?
+  configs = ARGV.map do |file|
+    (YAML.load(File.read(File.expand_path(file))))
+  end.flatten
+  FeedMe.new(configs)
+end
+
+__END__
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel> 
+    <title>BBC News - Home</title>  
+    <link>http://www.bbc.co.uk/news/#sa-ns_mchannel=rss&amp;ns_source=PublicRSS20-sa</link>  
+    <description>The latest stories from the Home section of the BBC News web site.</description>  
+    <language>en-gb</language>  
+    <lastBuildDate>Thu, 21 Nov 2013 18:50:04 GMT</lastBuildDate>  
+    <copyright>Copyright: (C) British Broadcasting Corporation, see http://news.bbc.co.uk/2/hi/help/rss/4498287.stm for terms and conditions of reuse.</copyright>  
+    <image> 
+      <url>http://news.bbcimg.co.uk/nol/shared/img/bbc_news_120x60.gif</url>  
+      <title>BBC News - Home</title>  
+      <link>http://www.bbc.co.uk/news/#sa-ns_mchannel=rss&amp;ns_source=PublicRSS20-sa</link>  
+      <width>120</width>  
+      <height>60</height> 
+    </image>  
+    <ttl>15</ttl>  
+    <atom:link href="http://feeds.bbci.co.uk/news/rss.xml" rel="self" type="application/rss+xml"/>  
+    <item> 
+      <title>Women 'held as slaves for 30 years'</title>  
+      <description>Three women are "rescued" from a house in south London as police investigate claims they were held as slaves for 30 years, with one thought to have been in captivity her whole life.</description>  
+      <link>http://www.bbc.co.uk/news/uk-england-london-25040741#sa-ns_mchannel=rss&amp;ns_source=PublicRSS20-sa</link>  
+      <guid isPermaLink="false">http://www.bbc.co.uk/news/uk-england-london-25040741</guid>  
+      <pubDate>Thu, 21 Nov 2013 18:28:14 GMT</pubDate>  
+      <media:thumbnail width="66" height="49" url="http://news.bbcimg.co.uk/media/images/71268000/jpg/_71268391_44797439.jpg"/>  
+      <media:thumbnail width="144" height="81" url="http://news.bbcimg.co.uk/media/images/71268000/jpg/_71268392_44797439.jpg"/> 
+    </item>  
+    <item> 
+      <title>NI soldiers 'must be prosecuted'</title>  
+      <description>Anyone actively involved in shooting unarmed civilians during the Troubles must be prosecuted, Northern Ireland's former deputy first minister says.</description>  
+      <link>http://www.bbc.co.uk/news/uk-25037497#sa-ns_mchannel=rss&amp;ns_source=PublicRSS20-sa</link>  
+      <guid isPermaLink="false">http://www.bbc.co.uk/news/uk-25037497</guid>  
+      <pubDate>Thu, 21 Nov 2013 18:05:41 GMT</pubDate>  
+      <media:thumbnail width="66" height="49" url="http://news.bbcimg.co.uk/media/images/71265000/jpg/_71265296_ira624getty.jpg"/>  
+      <media:thumbnail width="144" height="81" url="http://news.bbcimg.co.uk/media/images/71265000/jpg/_71265297_ira624getty.jpg"/> 
+    </item> 
+  </channel>
+</rss>

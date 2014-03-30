@@ -1,0 +1,2 @@
+#! /bin/sh
+find . -name '.*.sw?' -type f -exec rm -rvf '{}' \;

@@ -1,0 +1,15 @@
+#! /usr/bin/env perl
+
+# A simple command-line utility for finding and retrieving JavaScript libraries
+# from cdnjs.com
+
+use strict;
+use warnings;
+use LWP::Simple;
+my $lib = shift or die "No script entered on the command-line!";
+
+get("http://cdnjs.com") =~ m#<tr[^>]+data-library-name="$lib"[^>]*>.*?<p[^>]+itemprop="downloadUrl"[^>]+>([^<]+)#;
+die "Failed to find $lib at cdnjs.com - are you sure the name is right?" unless $1;
+my $url = "http:$1";
+my $script = get($url);
+print $script;

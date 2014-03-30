@@ -1,0 +1,12 @@
+#! /bin/sh
+# General deployment script.
+
+app=${1?"Deploy what?"}
+user=${user-$USER}
+user=${GITHUB_USERNAME-$user}
+:repo=${GITHUB_REPOSITORY-"https://github.com/$user/$app"}
+target=${2?"Deploy $app where?"}
+
+echo "Deploying $app onto $target"
+
+# Check that the server is reachable
