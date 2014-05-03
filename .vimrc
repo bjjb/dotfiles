@@ -43,4 +43,5 @@ let g:airline_symbols.whitespace = 'Ξ'
 :cnoremap <Esc>b <S-Left>
 :cnoremap <Esc>f <S-Right>
 
+autocmd BufNewFile,BufRead *.json set ft=javascript
 " vi:ft=vim
