@@ -103,3 +103,6 @@
 [submodule ".vim/bundle/rust.vim"]
 	path = .vim/bundle/rust.vim
 	url = https://github.com/wting/rust.vim
+[submodule ".vim/bundle/editorconfig-vim"]
+	path = .vim/bundle/editorconfig-vim
+	url = git://github.com/editorconfig/editorconfig-vim
