@@ -22,6 +22,11 @@ if [ -e /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
   fi
 fi
 
+# Perlbrew
+if [ -e $HOME/perl5/perlbrew/etc/bashrc ]; then
+  source ~/perl5/perlbrew/etc/bashrc
+fi
+
 # Locale settings
 export LANG="en_US.UTF-8"
 
@@ -31,6 +36,16 @@ fi
 
 # Local environment overrides
 [ -e $HOME/.env ] && . $HOME/.env
+
+function rake {
+  if [ -e bin/rake ]; then (bin/rake $*); else (`which rake` $*); fi
+}
+function bundle {
+  if [ -e bin/bundle ]; then (bin/bundle $*); else (`which bundle` $*); fi
+}
+function rails {
+  if [ -e bin/rails ]; then (bin/rails $*); else (`which rails` $*); fi
+}
 
 # Anything potentially slow and non-essential in a non-interactive session
 # should be loaded in .bash_profile instead.
