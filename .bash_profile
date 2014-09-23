@@ -23,6 +23,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="verbose name git"
 GIT_PS1_DESCRIBESTYLE=default
 
+[ -f /etc/bash_completion.d/git-prompt ] && .  /etc/bash_completion.d/git-prompt
 PROMPT_COMMAND='__git_ps1 "$light_cyan\u$light_grey@\h:$cyan\w$no_colour" "$light_grey\\\$$no_colour "'
 
 export EDITOR=vim
