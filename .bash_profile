@@ -1,7 +1,17 @@
 # Loaded for interactive shells - sources ~/.bashrc and does some extra stuff
 # that's not necessary for non-interactive shells (such as prompting)
 [ -r ~/.bashrc ] && . ~/.bashrc
-[ -e /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+platform=$(uname)
+
+if [ $platform = "Darwin" ]; then
+  which -s brew # check whether homebrew is available
+  if [ $? = 0 ]; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+      . $(brew --prefix)/etc/bash_completion
+    fi
+  fi
+fi
 
 CLOUDDIR=Dropbox
 
@@ -23,7 +33,6 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="verbose name git"
 GIT_PS1_DESCRIBESTYLE=default
 
-[ -f /etc/bash_completion.d/git-prompt ] && .  /etc/bash_completion.d/git-prompt
 PROMPT_COMMAND='__git_ps1 "$light_cyan\u$light_grey@\h:$cyan\w$no_colour" "$light_grey\\\$$no_colour "'
 
 export EDITOR=vim
