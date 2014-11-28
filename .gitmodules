@@ -115,3 +115,6 @@
 [submodule ".vim/bundle/slimv"]
 	path = .vim/bundle/slimv
 	url = https://github.com/kovisoft/slimv.git
+[submodule ".vim/bundle/vim-literate-coffeescript"]
+	path = .vim/bundle/vim-literate-coffeescript
+	url = https://github.com/mintplant/vim-literate-coffeescript.git
