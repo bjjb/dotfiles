@@ -1,6 +1,8 @@
 # Loaded automatically for non-login shells, and sourced by .bash_profile for
 # login shells.
 
+[ -d /usr/local/bin ] && export PATH=/usr/local/bin:$PATH
+
 if [ -d $HOME/bin ]; then
   PATH=$HOME/bin:$PATH
 fi
