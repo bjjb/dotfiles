@@ -115,3 +115,6 @@
 [submodule ".vim/bundle/vim-stylus"]
 	path = .vim/bundle/vim-stylus
 	url = https://github.com/wavded/vim-stylus.git
+[submodule ".vim/bundle/slimv"]
+	path = .vim/bundle/slimv
+	url = https://github.com/kovisoft/slimv.git
