@@ -15,8 +15,8 @@ filetype plugin indent on
 
 set laststatus=2 " always show a statusline
 
-set background=dark
 colorscheme molokai
+set background=dark
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -41,7 +41,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 :cnoremap <C-F> <Right>
 :cnoremap <C-B> <Left>
 :cnoremap <Esc>b <S-Left>
-:cnoremap <Esc>f <S-Right>
+:cnoremap <Esc>e <S-Right>
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
 " vi:ft=vim
