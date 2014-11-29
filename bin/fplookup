@@ -1,0 +1,330 @@
+#!/usr/bin/env perl -CS
+# Look up metadata for a tracks. Uses fpcalc, which comes with AcoustID
+# Chromaprint (bitbucket.org/acoustid/chromaprint), the AcoustID web service,
+# and the Musicbrainz web service.
+#
+# Run it with no arguments for help.
+#
+# For each file, it prints:
+# * the filename
+# * the result "score" (how likely a match it is, 0-1)
+# * every recording which matches, which consist of
+#   - the artist who performed the recording
+#   - the recording ID (on Musicbrainz)
+#   - the releases on which the recording is found, consisting of:
+#     * media (CD, Vinyl, etc)
+#       - the track on that medium
+use strict;
+use 5.012;
+
+use JSON::Tiny qw(decode_json encode_json);
+use XML::LibXML;
+use LWP::UserAgent;
+use Getopt::Long;
+
+my $version = "0.0.1";
+my $musicbrainz_endpoint = $ENV{MUSICBRAINZ} || "http://musicbrainz.org/ws/2";
+my $acoustid_endpoint = $ENV{ACOUSTID} || "http://api.acoustid.org/v2/lookup";
+my $acoustid_key = $ENV{ACOUSTIDKEY};
+my $threshold = 0.9;
+my $verbose = $ENV{VERBOSE};
+my $debug = $ENV{DEBUG};
+my $format = 'plain';
+my $cache_file = '/tmp/fplookup.cache';
+my $cache;
+my %include;
+
+my $ua = LWP::UserAgent->new;
+
+if ($0 eq __FILE__) {
+  Getopt::Long::Configure('bundling');
+  GetOptions (
+    'c|cache=s'               => \$cache_file,
+    'h|help'                  => sub { &show_help and exit 0; },
+    'V|version'               => sub { &show_version and exit 0; },
+    'v|verbose'               => \$verbose,
+    'd|debug'                 => \$debug,
+    'T|threshold=f'           => \$threshold,
+    'x|xml'                   => sub { $format = 'xml'; },
+    'j|json'                  => sub { $format = 'json'; },
+    't|titles'                => sub { $include{titles} = 1; },
+    'a|artists'               => sub { $include{artists} = 1; },
+    'r|releases'              => sub { $include{artists} = $include{releases} = 1; },
+    'm|media'                 => sub { $include{artists} = $include{releases} = $include{media} = 1; },
+    'acoustid-key=s'          => \$acoustid_key,
+    'acoustid-endpoint=s'     => \$acoustid_endpoint,
+    'musicbrainz-endpoint=s'  => \$musicbrainz_endpoint,
+  );
+
+  # Crap out if there are no files to process
+  &show_usage and exit 1 unless @ARGV;
+
+  &load_cache; # to prevent too many lookups on the web services
+  foreach my $file (@ARGV) {
+    say "file $file";
+    my @results = &lookup_file($file);
+    foreach my $result (@results) {
+      say "result $result->{score}";
+      foreach my $recording_id (@{$result->{recording_ids}}) {
+        if ($include{artists}) {
+          foreach my $artist (&lookup_artists($recording_id)) {
+            say "  artist $artist->{id} $artist->{name}" if $artist->{id} and $artist->{name};
+          }
+        }
+        if ($include{titles}) {
+          my $recording_title = (&lookup_recording($recording_id))[1];
+          say "  recording $recording_id $recording_title";
+        } else {
+          say "  recording $recording_id" if $recording_id;
+        }
+        if ($include{releases}) {
+          my @releases = &lookup_releases($recording_id);
+          foreach my $release (@releases) {
+            if ($release->{id} and $release->{date} and $release->{title}) {
+              say "    release $release->{id} $release->{date} $release->{title}";
+              if ($include{media}) {
+                my @media = @{$release->{media}};
+                foreach my $medium (@media) {
+                  if ($medium->{format}) {
+                    say "      medium $medium->{format}";
+                    my @tracks = @{$medium->{tracks}};
+                    foreach my $track (@tracks) {
+                      if ($track->{recording}->{id} eq $recording_id) {
+                        say "        track $track->{id} $track->{number}" if $track->{id} and $track->{number};
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &save_cache; # save what we've learned
+}
+
+sub lookup_artists {
+  my $recording_id = shift;
+  my $doc = &get_xml("$musicbrainz_endpoint/artist?recording=$recording_id");
+  my @artist_nodes = $doc->getElementsByTagName('artist');
+  my @artists;
+  foreach my $node (@artist_nodes) {
+    my %artist;
+    $artist{id} = $node->getAttribute('id');
+    $artist{type} = &xml_node_content($node, 'type');
+    $artist{name} = &xml_node_content($node, 'name');
+    $artist{country} = &xml_node_content($node, 'country');
+    push @artists, \%artist;
+  }
+  @artists;
+}
+
+# Fingerprints a single file, and returns a list of the Musicbrainz recording
+# IDs (one for each recording it might be).
+sub lookup_file {
+  $acoustid_key or die "no acoustid_key specified (set it as ACOUSTIDKEY= or with --acoustid-key)";
+  my ($file) = shift;
+  my ($fingerprint, $duration) = &fpcalc($file);
+  my $json = &get_json("$acoustid_endpoint?fingerprint=$fingerprint&duration=$duration&client=$acoustid_key&meta=recordingids");
+  $json->{status} eq "ok" or die "invalid response from acoustid";
+  # Only interested in high-scoring results
+  my @results = @{$json->{results}};
+  foreach my $result (@{$json->{results}}) {
+    my %result = (score => $result->{score});
+    my @recording_ids = map { $_->{id} } @{$result->{recordings}};
+    $result{recording_ids} = \@recording_ids;
+    push @results, \%result if @recording_ids;
+  }
+  @results
+}
+
+# Get results from AcoustID and Musicbrainz matching $fingerprint and
+# $duration (both are required). Returns a list of results.
+# Look up a recording on Musicbrainz by ID, returning the ID and the name
+sub lookup_recording {
+  my $id = shift;
+  my $xml = &get_xml("$musicbrainz_endpoint/recording/$id");
+  my ($node) = $xml->getElementsByTagName('recording');
+  $node and $node->getAttribute('id') eq $id or die "error looking up recording";
+  ($id, &xml_node_content($node, 'title'));
+}
+
+# Lookup releases on Musicbrainz for a given recording_id
+sub lookup_releases {
+  my $recording_id = shift;
+  my $doc = &get_xml("$musicbrainz_endpoint/release?recording=$recording_id&inc=media+recordings");
+
+  my @releases;
+  foreach my $release_node ($doc->getElementsByTagName('release')) {
+    my $release_id = $release_node->getAttribute('id');
+    my %release = (
+      id          => $release_id,
+      title       => &xml_node_content($release_node, 'title'),
+      status      => &xml_node_content($release_node, 'status'),
+      quality     => &xml_node_content($release_node, 'quality'),
+      barcode     => &xml_node_content($release_node, 'barcode'),
+      date        => &xml_node_content($release_node, 'date'),
+      country     => &xml_node_content($release_node, 'country')
+    );
+    my @media;
+    foreach my $medium_node ($release_node->getElementsByTagName('medium')) {
+      my %medium = (
+        position  => &xml_node_content($medium_node, 'position'),
+        format  => &xml_node_content($medium_node, 'format')
+      );
+      my @tracks;
+      foreach my $track_node ($medium_node->getElementsByTagName('track')) {
+        my %track = (
+          id        => $track_node->getAttribute('id'),
+          position  => &xml_node_content($track_node, 'position'),
+          number    => &xml_node_content($track_node, 'number'),
+          length    => &xml_node_content($track_node, 'length')
+        );
+        my ($recording_node) = $track_node->getElementsByTagName('recording');
+        my %recording = (
+          id      => $recording_node->getAttribute('id'),
+          title   => &xml_node_content($recording_node, 'title'),
+          length  => &xml_node_content($recording_node, 'length'),
+        );
+        $track{recording} = \%recording;
+        push @tracks, \%track;
+      }
+      $medium{tracks} = \@tracks;
+      push @media, \%medium;
+    }
+    $release{media} = \@media;
+    push @releases, \%release;
+  }
+  @releases;
+}
+
+# Extract some text content from the first matching tag in a node
+sub xml_node_content {
+  my ($node, $tag) = @_;
+  my ($n) = $node->getElementsByTagName($tag);
+  return undef unless $n;
+  $n->textContent;
+}
+
+# Get some response from the web (or from the cache)
+sub get {
+  my ($uri) = @_;
+  my $response;
+  if ($cache->{$uri}) { 
+    &debug("Cache hit: $uri => $cache->{$uri}");
+    $response = $cache->{$uri};
+  } else {
+    &debug("Cache miss $uri; fetching");
+    $response = $cache->{$uri} = $ua->get($uri)->decoded_content;
+  }
+  $response;
+}
+
+# Gets a JSON string, and returns the decoded struct
+sub get_json {
+  &decode_json(&get(@_));
+}
+
+# Gets an XML string and returns the parsed document
+sub get_xml {
+  &decode_xml(&get(@_));
+}
+
+# Sugar to parse an XML string
+sub decode_xml {
+  state $parser = XML::LibXML->new;
+  my ($xml) = @_;
+  $parser->load_xml(string => $xml);
+}
+
+# Uses `fpcalc` on the given file to return a fingerprint, duration, and the
+# filename.
+sub fpcalc {
+  my $file = shift;
+  chomp (my @result = reverse `fpcalc "$file"`);
+  die "error $? running fpcalc: $!" if $?;
+  s/[^=]+=// for @result;
+  @result;
+}
+
+# Prints if verbose is set
+sub info {
+  say @_ if $verbose or $debug;
+}
+
+# Prints if debug is set
+sub debug {
+  say @_ if $debug;
+}
+
+# Load a cache file (as JSON)
+sub load_cache {
+  local $/;
+  my ($fh, $json);
+  if (open ($fh, '<', $cache_file)) {
+    $json = <$fh>;
+  } else {
+    $json = "{}";
+  }
+  $cache = &decode_json($json);
+  close $fh;
+}
+
+# Save a cache file (as JSON)
+sub save_cache {
+  local $/;
+  open (my $fh, '>', $cache_file);
+  print $fh &encode_json($cache);
+  close $fh;
+}
+
+# Print out detailed program usage information
+sub show_help {
+  say (<<EOF);
+Usage: fplookup [options] <file> [<file>...]
+
+Looks up recordings for song files using an acoustic fingerprint, and prints
+its findings line by line.
+
+Options:
+  -j, --json                  show output in JSON format
+  -x, --xml                   show output in XML format
+  -a, --artists               include the MBID of each artist for each
+                              recording
+  -r, --releases              include the MBID of each release for each
+                              recording
+  -m, --media                 include the media for each release (this is how
+                              you get track numbers)
+  -t, --titles                include the track title for each recording
+  -M, --musicbrainz-ids       include Musicbrainz IDs for all results
+  -T, --threshold             specify how closely (0-1) a fingerprint must
+                              match to be included
+  -c, --cache                 use a different cache (default is
+                              /tmp/fplookup.cache);
+                              maybe useful if /tmp isn't writeable
+      --musicbrainz-endpoint  API endpoint for Musicbrainz
+      --acoustid-endpoint     API endpoint for AcoustID
+      --acoustid-key          8-character key for AcoustID server; by default,
+                              uses ACOUSTIDKEY from the environment
+  -v, --verbose               be noisier about lookups
+  -d, --debug                 also output the command-line and web-service
+                              calls
+  -V, --version               print the version and exit
+  -h, --help                  show this message
+EOF
+}
+
+# Print out brief program usage information
+sub show_usage {
+  say (<<EOF);
+Usage:  fplookup [options] [<files>]
+Try `fplookup -h` or `fplookup --help` for more details.
+EOF
+}
+
+# Show the program version
+sub show_version {
+  say "fplookup v$version";
+}
