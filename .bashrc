@@ -36,6 +36,11 @@ if [ -d /usr/local/heroku/bin ]; then
   PATH=$PATH:/usr/local/heroku/bin
 fi
 
+# Local perl installation
+if [ -e $HOME/perl5/perlbrew/etc/bashrc ]; then
+  source $HOME/perl5/perlbrew/etc/bashrc
+fi
+
 # Local environment overrides
 [ -e $HOME/.env ] && . $HOME/.env
 
