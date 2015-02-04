@@ -43,5 +43,12 @@ let g:airline_symbols.whitespace = 'Ξ'
 :cnoremap <Esc>b <S-Left>
 :cnoremap <Esc>e <S-Right>
 
+" I've found myself using the arrow keys! Need to stop!
+:noremap <Up> <nop>
+:noremap <Right> <nop>
+:noremap <Down> <nop>
+:noremap <Left> <nop>
+
 autocmd BufNewFile,BufRead *.json set ft=javascript
+autocmd BufNewFile,BufRead *.litcoffee set sw=2
 " vi:ft=vim
