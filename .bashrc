@@ -56,3 +56,8 @@ function rails {
 
 # Anything potentially slow and non-essential in a non-interactive session
 # should be loaded in .bash_profile instead.
+
+### Added by the Heroku Toolbelt
+if [ -d /usr/local/heroku/bin ]; then
+  export PATH="/usr/local/heroku/bin:$PATH"
+fi
