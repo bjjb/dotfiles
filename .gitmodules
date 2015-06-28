@@ -118,3 +118,6 @@
 [submodule ".vim/bundle/vim-literate-coffeescript"]
 	path = .vim/bundle/vim-literate-coffeescript
 	url = https://github.com/mintplant/vim-literate-coffeescript.git
+[submodule "bundle/vim-mustache-handlebars"]
+	path = bundle/vim-mustache-handlebars
+	url = git://github.com/mustache/vim-mustache-handlebars.git
