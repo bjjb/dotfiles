@@ -12,10 +12,8 @@ syntax on
 set number
 filetype plugin indent on
 
-
 set laststatus=2 " always show a statusline
 
-colorscheme molokai
 set background=dark
 
 if !exists('g:airline_symbols')
@@ -36,18 +34,18 @@ let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" Command-mode editing
-:cnoremap <C-A> <Home>
-:cnoremap <C-F> <Right>
-:cnoremap <C-B> <Left>
-:cnoremap <Esc>b <S-Left>
-:cnoremap <Esc>e <S-Right>
-
 " I've found myself using the arrow keys! Need to stop!
 :noremap <Up> <nop>
 :noremap <Right> <nop>
 :noremap <Down> <nop>
 :noremap <Left> <nop>
+
+" Command-mode editing
+cnoremap <C-A> <Home>
+cnoremap <C-F> <Right>
+cnoremap <C-B> <Left>
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd BufNewFile,BufRead *.litcoffee set sw=2

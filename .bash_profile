@@ -38,3 +38,4 @@ GIT_PS1_DESCRIBESTYLE=default
 PROMPT_COMMAND='__git_ps1 "$light_cyan\u$light_grey@\h:$cyan\w$no_colour" "$light_grey\\\$$no_colour "'
 
 export EDITOR=vim
+. $HOME/.env
