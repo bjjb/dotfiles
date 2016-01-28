@@ -20,8 +20,6 @@ if [ -d $HOME/$CLOUDDIR ]; then
   [ -f $HOME/$CLOUDDIR/TODO ] && cat $HOME/$CLOUDDIR/TODO
 fi
 
-[ -d $HOME/.boot2docker ] && [ `boot2docker status` = "running" ] && $(boot2docker shellinit)
-
 grey="\[\033[1;30m\]"
 light_grey="\[\033[0;37m\]"
 cyan="\[\033[0;36m\]"
