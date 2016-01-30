@@ -1,5 +1,16 @@
 " JJ's .vimrc
-"
+if has('autocmd')
+  filetype plugin indent on
+end
+
+if !exists('g:loaded_matchit')
+  runtime! macros/matchit.vim
+endif
+
+if has('syntax') && !exists('g:syntax_on')
+  syntax on
+end
+
 " All the useful stuff comes in bundles written by clever people - they're
 " imported by pathogen (which is a submodule) here.
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -7,32 +18,23 @@ execute pathogen#infect()
 
 set tw=78 ts=2 sw=2 et
 set visualbell
-set backspace=indent,eol,start
-
-syntax on
 set number
-filetype plugin indent on
-
+set relativenumber
+set cc=+1
+set hlsearch incsearch
+set backspace=indent,eol,start
 set laststatus=2 " always show a statusline
-
+set shell=/bin/bash
+set display+=lastline
+set smarttab
+set wildmenu
+set autoread
+set ttimeout
+set ttimeoutlen=100
+set complete-=i
 set background=dark
+colorscheme jellybeans
 
-" if !exists('g:airline_symbols')
-"   let g:airline_symbols = {}
-" endif
-" "let g:airline_left_sep = '»'
-" "let g:airline_left_sep = '▶'
-" let g:airline_left_sep = '║'
-" "let g:airline_right_sep = '«'
-" "let g:airline_right_sep = '◀'
-" let g:airline_right_sep = '║'
-" "let g:airline_symbols.linenr = '␊'
-" let g:airline_symbols.linenr = '␤'
-" "let g:airline_symbols.linenr = '¶'
-" let g:airline_symbols.branch = '⎇'
-" "let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.paste = 'Þ'
-" let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_powerline_fonts=1
 
 " Command-mode editing - behave like readline
