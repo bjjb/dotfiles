@@ -142,12 +142,15 @@
 [submodule ".vim/bundle/vim-stylus.git"]
 	path = .vim/bundle/vim-stylus.git
 	url = https://github.com/wavded/vim-stylus.git
-[submodule ".vim/bundle/slimv.git"]
-	path = .vim/bundle/slimv.git
-	url = https://github.com/kovisoft/slimv.git
 [submodule ".vim/bundle/vim-mustache-handlebars.git"]
 	path = .vim/bundle/vim-mustache-handlebars.git
 	url = git://github.com/mustache/vim-mustache-handlebars.git
 [submodule ".vim/bundle/vim-elixir.git"]
 	path = .vim/bundle/vim-elixir.git
 	url = https://github.com/elixir-lang/vim-elixir.git
+[submodule ".vim/bundle/vim-markdown-folding"]
+	path = .vim/bundle/vim-markdown-folding
+	url = https://github.com/nelstrom/vim-markdown-folding
+[submodule ".vim/bundle/vim-slim"]
+	path = .vim/bundle/vim-slim
+	url = https://github.com/slim-template/vim-slim

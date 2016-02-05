@@ -1,8 +1,4 @@
 " JJ's .vimrc
-if has('autocmd')
-  filetype plugin indent on
-end
-
 if !exists('g:loaded_matchit')
   runtime! macros/matchit.vim
 endif
@@ -15,6 +11,12 @@ end
 " imported by pathogen (which is a submodule) here.
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+
+if has('autocmd')
+  filetype plugin indent on
+  autocmd BufNewFile,BufRead *.json set ft=javascript
+  autocmd BufNewFile,BufRead *.litcoffee set sw=2
+end
 
 set tw=78 ts=2 sw=2 et
 set visualbell
@@ -51,9 +53,6 @@ noremap <Right> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 
-" Quick and dirty way to work with JSON files
-autocmd BufNewFile,BufRead *.json set ft=javascript
-autocmd BufNewFile,BufRead *.litcoffee set sw=2
 
 set exrc   " per-directory .vimrc files
 set secure " to prevent abuse of 'exrc'
