@@ -38,7 +38,30 @@ set complete-=i
 set background=dark
 colorscheme jellybeans
 
-let g:airline_powerline_fonts=1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+" unicode symbols
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 " Command-mode editing - behave like readline
 cnoremap <C-A> <Home>
@@ -83,5 +106,14 @@ function! SummarizeTabs()
     echohl None
   endtry
 endfunction
+
+" Switch definitions
+" Replace [ ] with [✓] (task lists)
+autocmd FileType markdown let b:switch_custom_definitions =
+    \ [
+    \   {
+    \     '^\([\*-]\s\)\[ \]\( .*\)$': '\1[✓]\2',
+    \   },
+    \ ]
 
 " vi:ft=vim
