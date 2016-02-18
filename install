@@ -10,6 +10,7 @@ ln -snFv $files/.tmux.conf $HOME/.tmux.conf
 ln -snfv $files/.ctags $HOME/.ctags
 ln -snFv $files/.cvsignore $HOME/.cvsignore
 ln -snFv $files/.vim $HOME/.vim
+ln -snFv $files/.tmux $HOME/.tmux
 ln -snFv $files/.vimrc $HOME/.vimrc
 ln -snFv $files/.irbrc $HOME/.irbrc
 ln -snFv $files/.gemrc $HOME/.gemrc
