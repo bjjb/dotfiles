@@ -7,6 +7,11 @@ if has('syntax') && !exists('g:syntax_on')
   syntax on
 end
 
+if has('gui_running')
+  set guifont=Hack\ Regular:h14
+  set guioptions=aemP
+endif
+
 " All the useful stuff comes in bundles written by clever people - they're
 " imported by pathogen (which is a submodule) here.
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -75,7 +80,6 @@ noremap <Up> <nop>
 noremap <Right> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
-
 
 set exrc   " per-directory .vimrc files
 set secure " to prevent abuse of 'exrc'
