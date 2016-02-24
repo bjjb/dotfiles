@@ -25,6 +25,8 @@ end
 
 set tw=78 ts=2 sw=2 et
 set visualbell
+set backspace=indent,eol,start
+syntax on
 set number
 set relativenumber
 set cc=+1
@@ -119,5 +121,12 @@ autocmd FileType markdown let b:switch_custom_definitions =
     \     '^\([\*-]\s\)\[ \]\( .*\)$': '\1[✓]\2',
     \   },
     \ ]
+
+" Quick and dirty way to work with JSON files
+autocmd BufNewFile,BufRead *.json set ft=javascript
+autocmd BufNewFile,BufRead *.litcoffee set sw=2
+
+set exrc   " per-directory .vimrc files
+set secure " to prevent abuse of 'exrc'
 
 " vi:ft=vim
