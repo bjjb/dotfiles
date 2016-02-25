@@ -2,3 +2,4 @@
 tags
 .*.sw?
 .togra
+tmux-client-*.log
