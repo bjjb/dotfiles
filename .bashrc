@@ -72,3 +72,5 @@ digitalocean () {
 if [ -d /usr/local/heroku/bin ]; then
   export PATH="/usr/local/heroku/bin:$PATH"
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
