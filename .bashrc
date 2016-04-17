@@ -44,14 +44,25 @@ fi
 # Local environment overrides
 [ -e $HOME/.env ] && . $HOME/.env
 
-function rake {
-  if [ -e bin/rake ]; then (bin/rake $*); else (`which rake` $*); fi
-}
-function bundle {
-  if [ -e bin/bundle ]; then (bin/bundle $*); else (`which bundle` $*); fi
-}
-function rails {
-  if [ -e bin/rails ]; then (bin/rails $*); else (`which rails` $*); fi
+# Function definitions
+rake ()   if [ -e bin/rake ]; then (bin/rake $*); else (`which rake` $*); fi
+bundle () if [ -e bin/bundle ]; then (bin/bundle $*); else (`which bundle` $*); fi
+rails ()  if [ -e bin/rails ]; then (bin/rails $*); else (`which rails` $*); fi
+
+np () { mpc -f "%title% ¦ %artist% ¦ %album%"; }
+mp () { mpc toggle; }
+
+g () { git $*; }
+d () { docker $*; }
+dm () { docker-machine $*; }
+
+get () { curl -X GET -L $*; }
+
+digitalocean () {
+  curl -X GET                                             \
+    -H "Content-Type: application/json"                   \
+    -H "Authorization: Bearer $DIGITALOCEAN_ACCESS_TOKEN" \
+    "https://api.digitalocean.com/v2/$1" | jsonpp;
 }
 
 # Anything potentially slow and non-essential in a non-interactive session
