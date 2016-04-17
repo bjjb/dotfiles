@@ -126,7 +126,17 @@ autocmd FileType markdown let b:switch_custom_definitions =
 autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd BufNewFile,BufRead *.litcoffee set sw=2
 
+set modelines=2
 set exrc   " per-directory .vimrc files
 set secure " to prevent abuse of 'exrc'
+
+function! MusicNowPlaying()
+  ! mpc
+endfunction
+function! MusicToggle()
+  ! mpc toggle
+endfunction
+command! NP call MusicNowPlaying()
+command! MP call MusicToggle()
 
 " vi:ft=vim
