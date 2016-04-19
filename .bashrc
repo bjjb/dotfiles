@@ -54,9 +54,7 @@ mp () { mpc toggle; }
 
 g () { git $*; }
 d () { docker $*; }
-dm () { docker-machine $*; }
-
-get () { curl -X GET -L $*; }
+dm () if [ $1 = "sw" ]; then eval $(docker-machine env $2); else docker-machine $*; fi
 
 digitalocean () {
   curl -X GET                                             \
