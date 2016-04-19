@@ -86,42 +86,6 @@ noremap <Left> <nop>
 set exrc   " per-directory .vimrc files
 set secure " to prevent abuse of 'exrc'
 
-" Command to set tabstop, softtabstop and shiftwidth to the same value
-command! -nargs=* Stab call Stab()
-function! Stab()
-  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-  if l:tabstop > 0
-    let &l:ts  = l:tabstop
-    let &l:sts = l:tabstop
-    let &l:sw  = l:tabstop
-  endif
-  call SummarizeTabs()
-endfunction
-function! SummarizeTabs()
-  try
-    echohl ModeMsg
-    echon 'tabstop='.&l:ts
-    echon ' softtabstop='.&l:sts
-    echon ' shiftwidth='.&l:sw
-    if &l:et
-      echon ' expandtab'
-    else
-      echon ' noexpandtab'
-    endif
-  finally
-    echohl None
-  endtry
-endfunction
-
-" Switch definitions
-" Replace [ ] with [✓] (task lists)
-autocmd FileType markdown let b:switch_custom_definitions =
-    \ [
-    \   {
-    \     '^\([\*-]\s\)\[ \]\( .*\)$': '\1[✓]\2',
-    \   },
-    \ ]
-
 " Quick and dirty way to work with JSON files
 autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd BufNewFile,BufRead *.litcoffee set sw=2
@@ -129,14 +93,5 @@ autocmd BufNewFile,BufRead *.litcoffee set sw=2
 set modelines=2
 set exrc   " per-directory .vimrc files
 set secure " to prevent abuse of 'exrc'
-
-function! MusicNowPlaying()
-  ! mpc
-endfunction
-function! MusicToggle()
-  ! mpc toggle
-endfunction
-command! NP call MusicNowPlaying()
-command! MP call MusicToggle()
 
 " vi:ft=vim
