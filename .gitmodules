@@ -160,3 +160,6 @@
 [submodule ".vim/bundle/tmuxline.vim"]
 	path = .vim/bundle/tmuxline.vim
 	url = git://github.com/edkolev/tmuxline.vim
+[submodule ".vim/bundle/iceberg.vim"]
+	path = .vim/bundle/iceberg.vim
+	url = git://github.com/cocopon/iceberg.vim.git
