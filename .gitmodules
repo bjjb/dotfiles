@@ -148,9 +148,6 @@
 [submodule ".vim/bundle/vim-elixir.git"]
 	path = .vim/bundle/vim-elixir.git
 	url = https://github.com/elixir-lang/vim-elixir.git
-[submodule ".vim/bundle/vim-markdown-folding"]
-	path = .vim/bundle/vim-markdown-folding
-	url = https://github.com/nelstrom/vim-markdown-folding
 [submodule ".vim/bundle/vim-slim"]
 	path = .vim/bundle/vim-slim
 	url = https://github.com/slim-template/vim-slim
