@@ -2,6 +2,7 @@
 # login shells.
 
 [ -d /usr/local/bin ] && export PATH=/usr/local/bin:$PATH
+[ -d /usr/local/sbin ] && export PATH=/usr/local/sbin:$PATH
 
 if [ -d $HOME/bin ]; then
   PATH=$HOME/bin:$PATH
