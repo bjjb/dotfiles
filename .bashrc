@@ -60,3 +60,6 @@ if [ -d /usr/local/heroku/bin ]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Local environment overrides
+[ -e $HOME/.env ] && . $HOME/.env
