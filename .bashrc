@@ -25,30 +25,17 @@ if [ -e /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
   fi
 fi
 
-# Perlbrew
-if [ -e $HOME/perl5/perlbrew/etc/bashrc ]; then
-  source ~/perl5/perlbrew/etc/bashrc
-fi
-
 # Locale settings
 export LANG="en_US.UTF-8"
-
-if [ -d /usr/local/heroku/bin ]; then
-  PATH=$PATH:/usr/local/heroku/bin
-fi
 
 # Local perl installation
 if [ -e $HOME/perl5/perlbrew/etc/bashrc ]; then
   source $HOME/perl5/perlbrew/etc/bashrc
 fi
-
-# Local environment overrides
-[ -e $HOME/.env ] && . $HOME/.env
-
 # Function definitions
-rake ()   if [ -e bin/rake ]; then (bin/rake $*); else (`which rake` $*); fi
+rake () if [ -e bin/rake ]; then (bin/rake $*); else (`which rake` $*); fi
 bundle () if [ -e bin/bundle ]; then (bin/bundle $*); else (`which bundle` $*); fi
-rails ()  if [ -e bin/rails ]; then (bin/rails $*); else (`which rails` $*); fi
+rails () if [ -e bin/rails ]; then (bin/rails $*); else (`which rails` $*); fi
 
 np () { mpc -f "%title% ¦ %artist% ¦ %album%"; }
 mp () { mpc toggle; }
