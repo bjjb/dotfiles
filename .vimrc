@@ -61,6 +61,10 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+let g:airline_theme = 'lucius'
+
+" Don't allow Tmuxline to overwrite the theme
+let g:airline#extensions#tmuxline#enabled = 0
 
 " Command-mode editing - behave like readline
 cnoremap <C-A> <Home>
