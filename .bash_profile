@@ -37,3 +37,5 @@ PROMPT_COMMAND='__git_ps1 "$light_cyan\u$light_grey@\h:$cyan\w$no_colour" "$ligh
 
 export EDITOR=vim
 . $HOME/.env
+
+[ -e ~/.bash/functions.bash ] && . ~/.bash/functions.bash

@@ -32,27 +32,6 @@ export LANG="en_US.UTF-8"
 if [ -e $HOME/perl5/perlbrew/etc/bashrc ]; then
   source $HOME/perl5/perlbrew/etc/bashrc
 fi
-# Function definitions
-rake () if [ -e bin/rake ]; then (bin/rake $*); else (`which rake` $*); fi
-bundle () if [ -e bin/bundle ]; then (bin/bundle $*); else (`which bundle` $*); fi
-rails () if [ -e bin/rails ]; then (bin/rails $*); else (`which rails` $*); fi
-
-np () { mpc -f "%title% ¦ %artist% ¦ %album%"; }
-mp () { mpc toggle; }
-
-g () { git $*; }
-d () { docker $*; }
-dm () if [ $1 = "sw" ]; then eval $(docker-machine env $2); else docker-machine $*; fi
-
-digitalocean () {
-  curl -X GET                                             \
-    -H "Content-Type: application/json"                   \
-    -H "Authorization: Bearer $DIGITALOCEAN_ACCESS_TOKEN" \
-    "https://api.digitalocean.com/v2/$1" | jsonpp;
-}
-
-# Anything potentially slow and non-essential in a non-interactive session
-# should be loaded in .bash_profile instead.
 
 ### Added by the Heroku Toolbelt
 if [ -d /usr/local/heroku/bin ]; then
