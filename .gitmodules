@@ -162,4 +162,4 @@
 	url = https://github.com/vim-airline/vim-airline-themes
 [submodule ".vim/bundle/vim-go"]
 	path = .vim/bundle/vim-go
-	url = https://github.com/fatih/vim-go.git
+	url = git://github.com/fatih/vim-go.git
