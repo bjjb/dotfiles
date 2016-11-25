@@ -1,5 +1,6 @@
 # Function definitions. Sourced by ~/.bash_profile
 rake () if [ -e bin/rake ]; then (bin/rake $*); else (`which rake` $*); fi
+rspec () if [ -e bin/rspec ]; then (bin/rspec $*); else (`which rspec` $*); fi
 bundle () if [ -e bin/bundle ]; then (bin/bundle $*); else (`which bundle` $*); fi
 rails () if [ -e bin/rails ]; then (bin/rails $*); else (`which rails` $*); fi
 
