@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/usr/bin/env bash
 # Installs the dotfiles into the home directory.
 files=`dirname $0`
 ln -snFv $files/.bash
