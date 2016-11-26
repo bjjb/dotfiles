@@ -42,3 +42,4 @@ fi
 
 # Local environment overrides
 [ -e $HOME/.env ] && . $HOME/.env
+[ -e $HOME/.localenv ] && . $HOME/.localenv
