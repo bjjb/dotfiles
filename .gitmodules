@@ -166,3 +166,9 @@
 [submodule ".vim/bundle/vim-crystal"]
 	path = .vim/bundle/vim-crystal
 	url = https://github.com/rhysd/vim-crystal
+[submodule ".vim/bundle/Dockerfile.vim"]
+	path = .vim/bundle/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim
+[submodule ".vim/bundle/kotlin-vim"]
+	path = .vim/bundle/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim

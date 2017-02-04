@@ -1,0 +1,17 @@
+#!/usr/bin/env clisp
+
+(defun acoustid (l)
+  (unless (null l)
+    (print (lookup (fpcalc (car l))))
+    (acoustid (cdr l))))
+
+(defun lookup (x)
+  ; TODO: send a request to the acoustid API and print the result
+  (format nil "LOOKUP[ ~A ]" x))
+
+(defun fpcalc (x)
+  ; TODO: run fpcalc and return the result
+  (ext:run-program "fpcalc" :arguments (list x) :output :STREAM))
+
+(acoustid *args*)
+; vi:ft=lisp
