@@ -2,19 +2,19 @@
 # Installs the dotfiles into the home directory.
 files=`pwd`
 if [ -x install ]; then
-	ln -snFv $files/.bash         $HOME/.bash
-	ln -snFv $files/.bashrc       $HOME/.bashrc
-	ln -snFv $files/.bash_profile $HOME/.bash_profile
-	ln -snFv $files/.Xdefaults    $HOME/.Xdefaults
-	ln -snfv $files/.ctags        $HOME/.ctags
-	ln -snFv $files/.cvsignore    $HOME/.cvsignore
-	ln -snFv $files/.vim          $HOME/.vim
-	ln -snFv $files/.vimrc        $HOME/.vimrc
-	ln -snFv $files/.tmux         $HOME/.tmux
-	ln -snFv $files/.tmux.conf    $HOME/.tmux.conf
-	ln -snFv $files/.irbrc        $HOME/.irbrc
-	ln -snFv $files/.gemrc        $HOME/.gemrc
-	ln -snFv $files/bin           $HOME/bin
+	ln -snfv $files/.bash         $HOME/.bash
+	ln -snfv $files/.bashrc       $HOME/.bashrc
+	ln -snfv $files/.bash_profile $HOME/.bash_profile
+	ln -snfv $files/.Xdefaults    $HOME/.Xdefaults
+	ln -snFv $files/.ctags        $HOME/.ctags
+	ln -snfv $files/.cvsignore    $HOME/.cvsignore
+	ln -snfv $files/.vim          $HOME/.vim
+	ln -snfv $files/.vimrc        $HOME/.vimrc
+	ln -snfv $files/.tmux         $HOME/.tmux
+	ln -snfv $files/.tmux.conf    $HOME/.tmux.conf
+	ln -snfv $files/.irbrc        $HOME/.irbrc
+	ln -snfv $files/.gemrc        $HOME/.gemrc
+	ln -snfv $files/bin           $HOME/bin
 	git submodule init
 	git submodule update --recursive
 else
