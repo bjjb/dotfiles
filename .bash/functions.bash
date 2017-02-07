@@ -9,6 +9,9 @@ mp () { mpc toggle; }
 g () { git $*; }
 d () { docker $*; }
 
+alpine () { docker run --rm -it bjjb/devbox:alpine ${*:-sh}; }
+ubuntu () { docker run --rm -it bjjb/devbox:ubuntu ${*:-bash}; }
+
 digitalocean () {
   curl -X GET                                             \
     -H "Content-Type: application/json"                   \
