@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+lines = `scutil --nc list`[1..-1].split("\n")
+vpns = lines.map { |l| $1 if l =~ /"(.+)"/ }
+
+if lines.any? { |l| l =~ /\A\* \(Connect/ }
+  puts "You're already connected to a VPN"
+  exit 3
+end
+
+if vpns.empty?
+  puts "There are no VPNs"
+  exit 2
+end
+
+unless ENV['HMA_USER'] && ENV['HMA_PW']
+  puts "You need to set HMA_USER and HMA_PW environment vars"
+  exit 1
+end
+
+vpn = vpns.sample
+user = ENV['HMA_USER']
+password = ENV['HMA_PW']
+secret = "HideMyAss"
+
+puts "Connecting to #{vpn}"
+system 'scutil --nc start "%s" --user "%s" --password "%s" --secret "%s"' %
+        [vpn, ENV['HMA_USER'], ENV['HMA_PW'], 'HideMyAss']
