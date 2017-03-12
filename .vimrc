@@ -73,6 +73,20 @@ cnoremap <C-B> <Left>
 cnoremap <Esc>b <S-Left>
 cnoremap <Esc>e <S-Right>
 
+" vim-go settings
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <leader>l  <Plug>(go-metalinter)
+autocmd FileType go nmap <leader>i  <Plug>(go-info)
+
 " I've found myself using the arrow keys! Need to stop!
 noremap <Up> <nop>
 noremap <Right> <nop>
@@ -86,6 +100,7 @@ set secure " to prevent abuse of 'exrc'
 autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd BufNewFile,BufRead *.litcoffee set sw=2
 
+set autowrite
 set modelines=2
 set exrc   " per-directory .vimrc files
 set secure " to prevent abuse of 'exrc'
