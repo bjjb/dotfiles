@@ -14,7 +14,8 @@ if [ -x install ]; then
 	ln -snfv $files/.tmux.conf    $HOME/.tmux.conf
 	ln -snfv $files/.irbrc        $HOME/.irbrc
 	ln -snfv $files/.gemrc        $HOME/.gemrc
-	ln -snfv $files/bin           $HOME/bin
+	mkdir -p $HOME/bin
+	for f in bin/*; do cp -nv $f $HOME/bin/; done
 	git submodule init
 	git submodule update --recursive
 else
