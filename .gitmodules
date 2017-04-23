@@ -28,9 +28,6 @@
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule ".vim/bundle/vim-haml"]
-	path = .vim/bundle/vim-haml
-	url = https://github.com/tpope/vim-haml
 [submodule ".vim/bundle/vim-characterize"]
 	path = .vim/bundle/vim-characterize
 	url = https://github.com/tpope/vim-characterize
@@ -52,9 +49,6 @@
 [submodule ".vim/bundle/vim-pathogen"]
 	path = .vim/bundle/vim-pathogen
 	url = http://github.com/tpope/vim-pathogen
-[submodule ".vim/bundle/vim-coffee-script"]
-	path = .vim/bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script
 [submodule ".vim/bundle/switch.vim"]
 	path = .vim/bundle/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim
@@ -94,9 +88,6 @@
 [submodule ".vim/bundle/vim-exchange"]
 	path = .vim/bundle/vim-exchange
 	url = https://github.com/tommcdo/vim-exchange.git
-[submodule ".vim/bundle/rust.vim"]
-	path = .vim/bundle/rust.vim
-	url = https://github.com/wting/rust.vim
 [submodule ".vim/bundle/editorconfig-vim"]
 	path = .vim/bundle/editorconfig-vim
 	url = git://github.com/editorconfig/editorconfig-vim
@@ -121,33 +112,12 @@
 [submodule ".vim/bundle/mustache"]
 	path = .vim/bundle/mustache
 	url = git://github.com/mustache/vim-mustache-handlebars.git
-[submodule ".vim/bundle/vim-elixir"]
-	path = .vim/bundle/vim-elixir
-	url = https://github.com/elixir-lang/vim-elixir.git
 [submodule ".vim/bundle/emmet-vim.git"]
 	path = .vim/bundle/emmet-vim.git
 	url = https://github.com/mattn/emmet-vim.git
 [submodule ".vim/bundle/vim-exchange.git"]
 	path = .vim/bundle/vim-exchange.git
 	url = https://github.com/tommcdo/vim-exchange.git
-[submodule ".vim/bundle/vim-jade.git"]
-	path = .vim/bundle/vim-jade.git
-	url = https://github.com/digitaltoad/vim-jade.git
-[submodule ".vim/bundle/vim-less.git"]
-	path = .vim/bundle/vim-less.git
-	url = https://github.com/groenewege/vim-less.git
-[submodule ".vim/bundle/vim-stylus.git"]
-	path = .vim/bundle/vim-stylus.git
-	url = https://github.com/wavded/vim-stylus.git
-[submodule ".vim/bundle/vim-mustache-handlebars.git"]
-	path = .vim/bundle/vim-mustache-handlebars.git
-	url = git://github.com/mustache/vim-mustache-handlebars.git
-[submodule ".vim/bundle/vim-elixir.git"]
-	path = .vim/bundle/vim-elixir.git
-	url = https://github.com/elixir-lang/vim-elixir.git
-[submodule ".vim/bundle/vim-slim"]
-	path = .vim/bundle/vim-slim
-	url = https://github.com/slim-template/vim-slim
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
 	url = git://github.com/ctrlpvim/ctrlp.vim
@@ -160,15 +130,6 @@
 [submodule ".vim/bundle/vim-airline-themes"]
 	path = .vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
-[submodule ".vim/bundle/vim-crystal"]
-	path = .vim/bundle/vim-crystal
-	url = https://github.com/rhysd/vim-crystal
-[submodule ".vim/bundle/Dockerfile.vim"]
-	path = .vim/bundle/Dockerfile.vim
-	url = https://github.com/ekalinin/Dockerfile.vim
-[submodule ".vim/bundle/kotlin-vim"]
-	path = .vim/bundle/kotlin-vim
-	url = https://github.com/udalov/kotlin-vim
-[submodule ".vim/bundle/vim-go"]
-	path = .vim/bundle/vim-go
-	url = https://github.com/fatih/vim-go.git
+[submodule ".vim/bundle/polyglot"]
+	path = .vim/bundle/polyglot
+	url = https://github.com/sheerun/vim-polyglot
