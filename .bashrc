@@ -25,11 +25,6 @@ if [ -e /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
   fi
 fi
 
-# Local perl installation
-if [ -e $HOME/perl5/perlbrew/etc/bashrc ]; then
-  source $HOME/perl5/perlbrew/etc/bashrc
-fi
-
 # Heroku CLI
 [ -d /usr/local/heroku/bin ] && export PATH="/usr/local/heroku/bin:$PATH"
 
