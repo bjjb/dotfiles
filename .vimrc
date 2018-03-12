@@ -100,6 +100,9 @@ noremap <Right> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 
+" 2 x Esc to remove the search highlight
+nnoremap <silent> <Esc><Esc> :noh<CR>
+
 set exrc   " per-directory .vimrc files
 set secure " to prevent abuse of 'exrc'
 
