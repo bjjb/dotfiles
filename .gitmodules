@@ -79,9 +79,6 @@
 [submodule ".vim/bundle/gist-vim"]
 	path = .vim/bundle/gist-vim
 	url = https://github.com/mattn/gist-vim
-[submodule ".vim/bundle/vim-projectile"]
-	path = .vim/bundle/vim-projectile
-	url = https://github.com/tpope/vim-projectile
 [submodule ".vim/bundle/vim-dispatch"]
 	path = .vim/bundle/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch
@@ -139,3 +136,6 @@
 [submodule ".vim/bundle/dracula-theme"]
 	path = .vim/bundle/dracula-theme
 	url = https://github.com/dracula/vim.git
+[submodule ".vim/bundle/vim-projectionist"]
+	path = .vim/bundle/vim-projectionist
+	url = https://github.com/tpope/vim-projectionist.git

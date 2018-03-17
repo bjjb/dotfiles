@@ -8,5 +8,5 @@ export EDITOR=vim
 # Source these extra scripts
 for f in "functions" "homebrew" "prompt" "ruby" "perl" "go"
 do
-  [ -e "$HOME/.bash/$f.bash" ] && . "$HOME/.bash/$f.bash"
+  [ -r "$HOME/.bash/$f.bash" ] && . "$HOME/.bash/$f.bash"
 done
