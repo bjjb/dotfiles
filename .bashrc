@@ -1,40 +1,27 @@
 # Loaded automatically for non-login shells, and sourced by .bash_profile for
 # login shells.
+path_has() {
+  path="${2:-$PATH}"
+  [ "$path" == "$1" ]      && return 0  # $path and $1 are identical
+  [ -z "${path##*:$1:*}" ] && return 0  # $1 contained within $path
+  [ -z "${path##*$1:*}" ]  && return 0  # $1 found at the start of $path
+  [ -z "${path##:$1*}" ]   && return 0  # $1 found at the end of $path
+  return 1;                             # $1 not found in $path
+}
 
 # Standard PATH entries...
-[ -d /usr/local/bin ] && export PATH=/usr/local/bin:$PATH
-[ -d /usr/local/sbin ] && export PATH=/usr/local/sbin:$PATH
-
-# User's home binaries
-if [ -d $HOME/bin ]; then
-  PATH=$HOME/bin:$PATH
-fi
+for p in /usr/local/bin /usr/local/sbin $HOME/bin
+do
+  path_has "$p" || PATH="$p:$PATH"
+done
 
 # Locale settings
 export LANG="en_IE.UTF-8"
 
 # Local Go installation
-export GOPATH=$HOME
-
-# Local Ruby installation
-if [ -e /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
-  source /usr/local/opt/chruby/share/chruby/chruby.sh
-  if [ -e /usr/local/opt/chruby/share/chruby/auto.sh ]; then
-    source /usr/local/opt/chruby/share/chruby/auto.sh
-  fi
-fi
-
-# Local perl installation
-if [ -e $HOME/perl5/perlbrew/etc/bashrc ]; then
-  source $HOME/perl5/perlbrew/etc/bashrc
-fi
-
-# Heroku CLI
-[ -d /usr/local/heroku/bin ] && export PATH="/usr/local/heroku/bin:$PATH"
-
-# Fast fuzzy finder
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export GOPATH="$HOME"
 
 # Local environment overrides
-[ -e $HOME/.env ] && . $HOME/.env
-[ -e $HOME/.localenv ] && . $HOME/.localenv
+[ -e $HOME/.env ]       && . $HOME/.env
+[ -e $HOME/.env.local ] && . $HOME/.env.local
+[ -e $HOME/.localenv ]  && . $HOME/.localenv
