@@ -32,7 +32,7 @@ set cc=+1
 set hlsearch incsearch
 set backspace=indent,eol,start
 set laststatus=2 " always show a statusline
-set shell=/bin/bash
+set shell=$SHELL
 set display+=lastline
 set smarttab
 set wildmenu
