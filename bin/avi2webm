@@ -1,6 +1,23 @@
 #!/bin/bash
 # Create webm files from avi files (or any file, really).
 
-# Encode to webm (vpx, vorbis) at 1400kb/s with a constant rate factor of 9.
+# Encode to webm (vp9, opus) at $BV (default 1M).
 # Overwrite files if needed. Delete the original file if successful.
-ffmpeg -y -i "$1" -b:v 1400k -crf 9 "${1%%.*}.webm" && rm -v "$1"
+
+cv=${CV:-libvpx-vp9}
+bv=${BV:-1M}
+ca=${CA:-libopus}
+ba=${BA:-24k}
+
+convert() {
+  i=${1?No input file given}
+  o="${1%.*}.webm"
+
+  ffmpeg -i "$i" -c:v $cv -b:v $bv -c:a $ca -b:a $ba -y "$o" \
+      && rm "$i"
+}
+
+for f in $@
+do
+  convert $f
+done

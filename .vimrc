@@ -111,4 +111,7 @@ set modelines=2
 set exrc   " per-directory .vimrc files
 set secure " to prevent abuse of 'exrc'
 
+" For editing crontabs
+autocmd FileType crontab setlocal bkc=yes
+
 " vi:ft=vim
