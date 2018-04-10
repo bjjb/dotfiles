@@ -32,7 +32,7 @@ set cc=+1
 set hlsearch incsearch
 set backspace=indent,eol,start
 set laststatus=2 " always show a statusline
-set shell=/bin/bash
+set shell=$SHELL
 set display+=lastline
 set smarttab
 set wildmenu
@@ -44,7 +44,8 @@ set complete-=i
 set background=dark
 
 set t_Co=256
-colorscheme iceberg
+"colorscheme iceberg
+colorscheme dracula
 syntax on
 
 " Airline (status-bar) config
@@ -98,6 +99,9 @@ noremap <Up> <nop>
 noremap <Right> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
+
+" 2 x Esc to remove the search highlight
+nnoremap <silent> <Esc><Esc> :noh<CR>
 
 set exrc   " per-directory .vimrc files
 set secure " to prevent abuse of 'exrc'

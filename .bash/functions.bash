@@ -12,6 +12,10 @@ d () { docker $*; }
 alpine () { docker run --rm -it bjjb/devbox:alpine ${*:-sh}; }
 ubuntu () { docker run --rm -it bjjb/devbox:ubuntu ${*:-bash}; }
 
+shuffle () {
+  ruby -e 'puts ARGF.read.split("\n").reject(&:nil?).compact.shuffle.join("\n")'
+}
+
 digitalocean () {
   curl -X GET                                             \
     -H "Content-Type: application/json"                   \

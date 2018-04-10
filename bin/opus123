@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+which -s opusdec || (echo 'You program needs opusdec'; exit 1)
+which -s out123 || (echo 'This program needs out123'; exit 2)
+
+play() {
+  echo "$@"
+  opusdec --quiet --force-wav "$*" - | out123
+  echo "done."
+}
+
+for f in "$@"; do play $f; done
