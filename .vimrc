@@ -10,6 +10,20 @@ end
 if has('gui_running')
   set guifont=Hack\ Regular:h14
   set guioptions=aemP
+  function! ConqueMan()
+    let cmd = &keywordprg . ' '
+    if cmd ==# 'man ' || cmd ==# 'man -s '
+      if v:count > 0
+        let cmd .= v:count . ' '
+      else
+        let cmd = 'man '
+      endif
+    endif
+    let cmd .= expand('<cword>')
+    execute 'ConqueTermSplit' cmd
+  endfunction
+  map K :<C-U>call ConqueMan()<CR>
+  ounmap K
 endif
 
 " All the useful stuff comes in bundles written by clever people - they're

@@ -15,10 +15,6 @@ do
   path_has "$p" || PATH="$p:$PATH"
 done
 
-# Locale settings
-export LANG="en_IE.UTF-8"
-export LC_CTYPE="en_IE.UTF-8"
-
 # Local environment overrides
 [ -e $HOME/.env ]       && . $HOME/.env
 [ -e $HOME/.env.local ] && . $HOME/.env.local

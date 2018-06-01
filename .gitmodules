@@ -139,3 +139,9 @@
 [submodule ".vim/bundle/vim-projectionist"]
 	path = .vim/bundle/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist.git
+[submodule ".vim/bundle/vim-rubocop"]
+	path = .vim/bundle/vim-rubocop
+	url = https://github.com/ngmy/vim-rubocop.git
+[submodule ".vim/bundle/conqueterm"]
+	path = .vim/bundle/conqueterm
+	url = https://github.com/pthrasher/conqueterm-vim.git
