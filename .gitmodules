@@ -145,3 +145,6 @@
 [submodule ".vim/bundle/conqueterm"]
 	path = .vim/bundle/conqueterm
 	url = https://github.com/pthrasher/conqueterm-vim.git
+[submodule ".vim/bundle/atom-dark"]
+	path = .vim/bundle/atom-dark
+	url = https://github.com/gosukiwi/vim-atom-dark.git
