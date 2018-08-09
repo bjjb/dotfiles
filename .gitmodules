@@ -148,3 +148,6 @@
 [submodule ".vim/bundle/atom-dark"]
 	path = .vim/bundle/atom-dark
 	url = https://github.com/gosukiwi/vim-atom-dark.git
+[submodule ".vim/bundle/readline.vim"]
+	path = .vim/bundle/readline.vim
+	url = https://github.com/ryvnf/readline.vim.git
