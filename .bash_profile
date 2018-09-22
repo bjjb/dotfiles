@@ -4,7 +4,7 @@
 
 
 # Source these extra scripts
-for f in "functions" "homebrew" "prompt" "ruby" "perl" "go" "tmuxinator"
+for f in "functions" "homebrew" "git" "prompt" "ruby" "perl" "go" "tmuxinator"
 do
   [ -r "$HOME/.bash/$f.bash" ] && . "$HOME/.bash/$f.bash"
 done

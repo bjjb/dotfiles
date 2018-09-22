@@ -13,3 +13,6 @@ if [ "$(type -t __git_ps1)" = "function" ]; then
 
   PROMPT_COMMAND='__git_ps1 "$cyan\u$grey@\h:$cyan\w$none" "$grey\\\$$none "'
 fi
+
+f=/usr/local/share/bash_completion.sh
+[ -f $f ] && source $f
