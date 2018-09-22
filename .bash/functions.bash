@@ -40,3 +40,7 @@ cfddns () {
     cloudflarer records create -z $zid --name $name --type A --content $newip
   fi
 }
+
+psql () {
+  docker run --rm -it --link postgres postgres:alpine psql $@
+}

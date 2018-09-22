@@ -14,3 +14,7 @@ export LC_ALL=en_IE.UTF-8
 
 # The best editor
 export EDITOR=vim
+
+# Java environments
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
