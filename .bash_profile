@@ -2,9 +2,9 @@
 # that's not necessary for non-interactive shells (such as prompting)
 [ -r $HOME/.bashrc ] && . $HOME/.bashrc
 
-
 # Source these extra scripts
-for f in "functions" "homebrew" "git" "prompt" "ruby" "perl" "go" "tmuxinator"
+for f in "functions" "homebrew" "prompt" "ruby" "perl" "go" "tmuxinator" \
+         "python" "ssh" "git"
 do
   [ -r "$HOME/.bash/$f.bash" ] && . "$HOME/.bash/$f.bash"
 done
@@ -14,7 +14,12 @@ export LC_ALL=en_IE.UTF-8
 
 # The best editor
 export EDITOR=vim
+export VISUAL=$EDITOR
 
 # Java environments
+
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# If we're in an LDAP environment...
+export LDAP_USERNAME=$(whoami)

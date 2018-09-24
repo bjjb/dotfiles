@@ -41,6 +41,4 @@ cfddns () {
   fi
 }
 
-psql () {
-  docker run --rm -it --link postgres postgres:alpine psql $@
-}
+[[ -x "$HOME/.functions.bash" ]] && . "$HOME/.functions.bash"
