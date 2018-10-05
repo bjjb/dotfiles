@@ -151,3 +151,6 @@
 [submodule ".vim/bundle/readline.vim"]
 	path = .vim/bundle/readline.vim
 	url = https://github.com/ryvnf/readline.vim.git
+[submodule ".vim/bundle/vim-ripgrep"]
+	path = .vim/bundle/vim-ripgrep
+	url = https://github.com/jremmen/vim-ripgrep
