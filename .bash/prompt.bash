@@ -16,3 +16,11 @@ fi
 
 f=/usr/local/share/bash_completion.sh
 [ -f $f ] && source $f
+
+# Also, start ssh-agent, if available (unless already started)
+if [ -x $(which ssh-agent) ] && ! [ -e $SSH_AUTH_SOCK ]
+then
+  eval $(ssh-agent)
+  ssh-add
+  ssh-add ~/.ssh/bjjb.key
+fi
