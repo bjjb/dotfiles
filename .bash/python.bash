@@ -1,5 +1,1 @@
-if [ -x $(which pyenv) ]
-then
-  eval "$(pyenv init -)"
-  pyenv shell aws-utils
-fi
+which -s pyenv && eval "$(pyenv init -)"
