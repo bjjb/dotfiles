@@ -37,18 +37,15 @@ if has('autocmd')
   autocmd BufNewFile,BufRead *.litcoffee set sw=2
 end
 
-set tw=78 ts=2 sw=2 et
-set visualbell
+set shell=$SHELL
+set textwidth=78 tabstop=2 shiftwidth=2 smarttab expandtab visualbell number
+set signcolumn=yes
 set backspace=indent,eol,start
-set number
-"set relativenumber
 set cc=+1
 set hlsearch incsearch
 set backspace=indent,eol,start
 set laststatus=2 " always show a statusline
-set shell=$SHELL
 set display+=lastline
-set smarttab
 set wildmenu
 set autoread
 set ttimeout
@@ -57,16 +54,15 @@ set ttimeoutlen=100
 set complete-=i
 set background=dark
 
-set t_Co=256
+" set t_Co=256
 "colorscheme iceberg
 colorscheme dracula
-syntax on
 
 " Airline (status-bar) config
+" unicode symbols (require a suitable font, like Hack)
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-" unicode symbols
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_left_sep = ''
@@ -76,7 +72,16 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-let g:airline_theme = 'lucius'
+" let g:airline_theme = 'lucius'
+
+" syntastic-airline plugin
+let g:airline#extensions#syntastic#enabled = 1
+
+" Syntastic configuration
+let g:syntastic_error_symbol = "💥"
+let g:syntastic_warning_symbol = "⚠️"
+let g:syntastic_style_error_symbol = "😞"
+let g:syntastic_style_warning_symbol = "🙁"
 
 " Don't allow Tmuxline to overwrite the theme
 let g:airline#extensions#tmuxline#enabled = 0

@@ -4,11 +4,14 @@ rspec () if [ -e bin/rspec ]; then (bin/rspec $*); else (`which rspec` $*); fi
 bundle () if [ -e bin/bundle ]; then (bin/bundle $*); else (`which bundle` $*); fi
 rails () if [ -e bin/rails ]; then (bin/rails $*); else (`which rails` $*); fi
 
+# Music Player Client
 mp () { mpc toggle; }
 
 g () { git $*; }
 d () { docker $*; }
+dm () { docker-machine $@; }
 
+devbox () { docker run --rm -it bjjb/devbox sh; }
 alpine () { docker run --rm -it bjjb/devbox:alpine ${*:-sh}; }
 ubuntu () { docker run --rm -it bjjb/devbox:ubuntu ${*:-bash}; }
 

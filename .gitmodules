@@ -154,3 +154,6 @@
 [submodule ".vim/bundle/vim-ripgrep"]
 	path = .vim/bundle/vim-ripgrep
 	url = https://github.com/jremmen/vim-ripgrep
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
