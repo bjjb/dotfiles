@@ -5,7 +5,7 @@ chruby="/usr/local/share/chruby/chruby.sh"
 auto="/usr/local/share/chruby/auto.sh"
 [ -f "$auto" ] && . $auto
 
-rake () { [ -e bin/rake ] && bin/rake $@ || $(which -s rake) $@ ; }
+cap () { [ -e bin/cap ] && bin/cap $@ || $(which -s cap) $@ ; }
 rails () { [ -e bin/rails ] && bin/rails $@ || $(which -s rails) $@ ; }
 rspec () { [ -e bin/rspec ] && bin/rspec $@ || $(which -s rspec) $@ ; }
 guard () { [ -e bin/guard ] && bin/guard $@ || $(which -s guard) $@ ; }
