@@ -26,6 +26,8 @@ if has('gui_running')
   ounmap K
 endif
 
+runtime ftplugin/man.vim
+
 " All the useful stuff comes in bundles written by clever people - they're
 " imported by pathogen (which is a submodule) here.
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -136,5 +138,8 @@ set secure " to prevent abuse of 'exrc'
 
 " For editing crontabs
 autocmd FileType crontab setlocal bkc=yes
+
+" See ft-bash-syntax
+let g:is_bash = 1
 
 " vi:ft=vim
