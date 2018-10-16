@@ -3,11 +3,9 @@
 [ -r $HOME/.bashrc ] && . $HOME/.bashrc
 
 # Source these extra scripts
-for f in "functions" "homebrew" "prompt" "ruby" "perl" "go" "tmuxinator" \
-         "python" "ssh" "git" "java" "identity" "aws"
-do
-  [ -r "$HOME/.bash/$f.bash" ] && . "$HOME/.bash/$f.bash"
-done
+[ -d $HOME/.bash ] && for f in $HOME/.bash/*.bash; do . $f; done
+
+[ -w pyenv ] && eval "$(pyenv init -)"
 
 # Hibernian English
 export LC_ALL=en_IE.UTF-8
