@@ -7,6 +7,9 @@ g () { git $*; }
 d () { docker $*; }
 dm () { docker-machine $@; }
 
+tn () { tmux new-session -s ${1:-${PWD##*/}}; }
+ta () { tmux attach-session; }
+
 devbox () { docker run --rm -it bjjb/devbox sh; }
 alpine () { docker run --rm -it bjjb/devbox:alpine ${*:-sh}; }
 ubuntu () { docker run --rm -it bjjb/devbox:ubuntu ${*:-bash}; }
