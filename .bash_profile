@@ -13,3 +13,13 @@ export LC_ALL=en_IE.UTF-8
 # The best editor
 export EDITOR=vim
 export VISUAL=$EDITOR
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+if [ -d "$HOME/.sdkman" ]
+then
+  export SDKMAN_DIR="$HOME/.sdkman"
+  if [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]
+  then
+    source "$SDKMAN_DIR/bin/sdkman-init.sh"
+  fi
+fi
