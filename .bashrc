@@ -15,7 +15,17 @@ do
   path_has "$p" || PATH="$p:$PATH"
 done
 
+
+# Hibernian English
+export LC_ALL=en_IE.UTF-8
+
+# The best editor
+export EDITOR=vim
+export VISUAL=$EDITOR
+
 # Local environment overrides
 [ -e $HOME/.env ]       && . $HOME/.env
 [ -e $HOME/.env.local ] && . $HOME/.env.local
 [ -e $HOME/.localenv ]  && . $HOME/.localenv
+
+[ -d $HOME/.bash ] && for f in $HOME/.bash/*.bash; do . $f; done
