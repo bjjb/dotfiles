@@ -11,7 +11,7 @@ if [ "$(type -t __git_ps1)" = "function" ]; then
   GIT_PS1_SHOWUPSTREAM="verbose name git"
   GIT_PS1_DESCRIBESTYLE=default
 
-  PROMPT_COMMAND='__git_ps1 "$cyan\u$grey@\h:$cyan\w$none" "$grey\\\$$none "'
+  PROMPT_COMMAND='__git_ps1 "$cyan\u$grey@\h:$cyan\w$none" "\n$grey\\\$$none "'
 fi
 
 f=/usr/local/share/bash_completion.sh
