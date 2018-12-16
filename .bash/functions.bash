@@ -11,6 +11,13 @@ have() {
 
 # Music Player Client
 mp () { have mpc && mpc toggle; }
+opus123 () {
+  have opusdec out123 || echo "Need opusdec and out123" && return
+  for f in "$@"
+  do
+    opusdec --quiet --force-wav "$*" - | out123
+  done
+}
 
 # git aliases
 g () { have git && git $*; }
@@ -28,7 +35,7 @@ ta () { tmux attach-session; }
 
 # Randomize the args
 shuffle () {
-  have ruby || return "Missing ruby"
+  have ruby || echo "Missing ruby" && return
   ruby -e <<EOF
   puts ARGF.read.split("\n").reject(&:nil?).compact.shuffle.join("\n")
 EOF
@@ -45,7 +52,7 @@ digitalocean () {
 
 # Gets the locally set IP address
 myipv6 () {
-  have ip || return "Missing ip"
+  have ip || echo "Missing ip" && return
   ip -o -6 address \
     | grep -v 'deprecated' \
     | awk '/global/ { print $4 }' \
