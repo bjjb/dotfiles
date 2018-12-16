@@ -1,4 +1,6 @@
 # Java environments
-[ -d "$HOME/.jenv/bin" ] && export PATH="$HOME/.jenv/bin:$PATH"
-which -s jenv && eval "$(jenv init -)"
-
+if [ -d "$HOME/.jenv/bin" ]
+then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+fi
