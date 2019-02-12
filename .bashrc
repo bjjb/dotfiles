@@ -29,3 +29,9 @@ export VISUAL=$EDITOR
 [ -e $HOME/.localenv ]  && . $HOME/.localenv
 
 [ -d $HOME/.bash ] && for f in $HOME/.bash/*.bash; do . $f; done
+
+if [ -x /usr/bin/xclip ]
+then
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
