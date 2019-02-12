@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+require 'pathname'
+require 'cloudflarer'
+require 'yaml'
+
+def main
+  cf = Cloudflarer.new
+  ipv4 = `curl -sL4 icanhazip.com`.strip
+  ipv6 = `curl -sL6 icanhazip.com`.strip
+  names = YAML.load(Pathname.new('~/.cfddns.yml').expand_path.read)
+  zones = cf.get('zones').fetch('result')
+  names.each do |name|
+    domain = name.strip.split('.', 2)[1]
+    zone = zones.find { |z| z.fetch('name') == domain }
+    create_or_update(cf, zone, name, 'A', ipv4) unless ipv4.empty?
+    create_or_update(cf, zone, name, 'AAAA', ipv6) unless ipv6.empty?
+  end
+end
+
+def create_or_update(cf, zone, name, type, content)
+  zid = zone.fetch('id')
+  records = cf.get("zones/#{zid}/dns_records").fetch('result')
+  record = records.find do |r|
+    r.fetch('name') == name && r.fetch('type') == type
+  end
+  return create(cf, zone, name, type, content) if record.nil?
+  return if record.fetch('content') == content
+  update(cf, record, name, type, content)
+end
+
+def create(cf, zone, name, type, content)
+  zid = zone.fetch('id')
+  params = { name: name, type: type, content: content }
+  response = cf.post("zones/#{zid}/dns_records", params)
+end
+
+def update(cf, record, name, type, content)
+  zid = record.fetch('zone_id')
+  rid = record.fetch('id')
+  params = { name: name, type: type, content: content }
+  response = cf.put("zones/#{zid}/dns_records/#{rid}", params)
+end
+
+main
