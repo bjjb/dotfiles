@@ -29,18 +29,16 @@ endif
 runtime ftplugin/man.vim
 
 " All the useful stuff comes in bundles written by clever people - they're
-" imported by pathogen (which is a submodule) here.
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+" installed as plugins in the .vim/pack directory.
 
 if has('autocmd')
   filetype plugin indent on
   autocmd BufNewFile,BufRead *.json set ft=javascript
-  autocmd BufNewFile,BufRead *.litcoffee set sw=2
 end
 
 set shell=$SHELL
-set textwidth=78 tabstop=2 shiftwidth=2 smarttab expandtab visualbell number
+" set textwidth=78 tabstop=2 shiftwidth=2 smarttab expandtab visualbell number
+set textwidth=78 smarttab noexpandtab visualbell number
 set signcolumn=yes
 set backspace=indent,eol,start
 set cc=+1
@@ -58,7 +56,7 @@ set background=dark
 
 " set t_Co=256
 "colorscheme iceberg
-colorscheme dracula
+" colorscheme dracula
 
 " Airline (status-bar) config
 " unicode symbols (require a suitable font, like Hack)
@@ -102,7 +100,13 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_auto_sameids = 1
+let g:go_auto_type_info = 1
 let g:go_fmt_command = "goimports"
+autocmd FileType go set noexpandtab
+autocmd FileType go set shiftwidth=2
+autocmd FileType go set softtabstop=2
+autocmd FileType go set tabstop=2
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
@@ -129,7 +133,6 @@ set secure " to prevent abuse of 'exrc'
 
 " Quick and dirty way to work with JSON files
 autocmd BufNewFile,BufRead *.json set ft=javascript
-autocmd BufNewFile,BufRead *.litcoffee set sw=2
 
 set autowrite
 set modelines=2
