@@ -25,9 +25,6 @@
 [submodule "jremmen/vim-ripgrep"]
 	path = .vim/pack/bundle/start/vim-ripgrep
 	url = https://github.com/jremmen/vim-ripgrep
-[submodule "junegunn/fzf.vim"]
-	path = .vim/pack/bundle/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
 [submodule "mattn/emmet-vim.git"]
 	path = .vim/pack/bundle/start/emmet-vim.git
 	url = https://github.com/mattn/emmet-vim.git
@@ -106,3 +103,15 @@
 [submodule "vim-airline/vim-airline-themes"]
 	path = .vim/pack/bundle/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "w0rp/ale"]
+	path = .vim/pack/bundle/start/ale
+	url = https://github.com/w0rp/ale
+[submodule "junegunn/limelight.vim"]
+	path = .vim/pack/bundle/start/limelight.vim
+	url = https://github.com/junegunn/limelight.vim
+[submodule "junegunn/goyo.vim"]
+	path = .vim/pack/bundle/start/goyo.vim
+	url = https://github.com/junegunn/goyo.vim
+[submodule "SirVer/ultisnips"]
+	path = .vim/pack/bundle/start/ultisnips
+	url = https://github.com/SirVer/ultisnips

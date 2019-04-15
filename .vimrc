@@ -37,7 +37,7 @@ if has('autocmd')
 end
 
 set shell=$SHELL
-" set textwidth=78 tabstop=2 shiftwidth=2 smarttab expandtab visualbell number
+set textwidth=78 tabstop=2 shiftwidth=2 smarttab expandtab visualbell number
 set textwidth=78 smarttab noexpandtab visualbell number
 set signcolumn=yes
 set backspace=indent,eol,start
@@ -94,26 +94,30 @@ cnoremap <Esc>b <S-Left>
 cnoremap <Esc>e <S-Right>
 
 " vim-go settings
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_auto_sameids = 1
-let g:go_auto_type_info = 1
+" let g:go_highlight_functions = 1
+" let g:go_highlight_methods = 1
+" let g:go_highlight_fields = 1
+" let g:go_highlight_types = 1
+" let g:go_highlight_operators = 1
+" let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
+let g:go_info_mode = 'guru'
+let g:go_auto_type_indo = 1
+let g:go_updatetime = 1000
+let g:go_fmt_fail_silently = 1
 autocmd FileType go set noexpandtab
 autocmd FileType go set shiftwidth=2
 autocmd FileType go set softtabstop=2
 autocmd FileType go set tabstop=2
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <leader>T  <Plug>(go-test-compile)
-autocmd FileType go nmap <leader>l  <Plug>(go-metalinter)
-autocmd FileType go nmap <leader>i  <Plug>(go-info)
-autocmd FileType go nmap <leader>i  <Plug>(go-info)
+autocmd FileType go set autowrite
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader>T <Plug>(go-test-compile)
+autocmd FileType go nmap <leader>l <Plug>(go-metalinter)
+autocmd FileType go nmap <leader>i <Plug>(go-info)
+autocmd FileType go nmap <leader>f <Plug>(go-decls)
+autocmd FileType go nmap <leader>F <Plug>(go-decls-dir)
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
@@ -144,5 +148,8 @@ autocmd FileType crontab setlocal bkc=yes
 
 " See ft-bash-syntax
 let g:is_bash = 1
+
+" Emmet config
+let g:user_emmet_settings = { 'html' : { 'quote_char': "'" } }
 
 " vi:ft=vim
