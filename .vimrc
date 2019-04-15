@@ -55,7 +55,7 @@ set complete-=i
 set background=dark
 
 " set t_Co=256
-"colorscheme iceberg
+colorscheme iceberg
 " colorscheme dracula
 
 " Airline (status-bar) config

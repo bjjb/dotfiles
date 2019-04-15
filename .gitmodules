@@ -1,30 +1,108 @@
-[submodule ".vim/bundle/emmet-vim"]
-	path = .vim/bundle/emmet-vim
+[submodule "AndrewRadev/splitjoin.vim"]
+	path = .vim/pack/bundle/start/splitjoin.vim
+	url = https://github.com/AndrewRadev/splitjoin.vim
+[submodule "AndrewRadev/switch.vim"]
+	path = .vim/pack/bundle/start/switch.vim
+	url = https://github.com/AndrewRadev/switch.vim
+[submodule "cocopon/iceberg.vim"]
+	path = .vim/pack/bundle/start/iceberg.vim
+	url = https://github.com/cocopon/iceberg.vim
+[submodule "ctrlpvim/ctrlp.vim"]
+	path = .vim/pack/bundle/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "dracula/vim"]
+	path = .vim/pack/bundle/start/vim
+	url = https://github.com/dracula/vim
+[submodule "editorconfig/editorconfig-vim"]
+	path = .vim/pack/bundle/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
+[submodule "edkolev/tmuxline.vim"]
+	path = .vim/pack/bundle/start/tmuxline.vim
+	url = https://github.com/edkolev/tmuxline.vim
+[submodule "fatih/vim-go"]
+	path = .vim/pack/bundle/start/vim-go
+	url = https://github.com/fatih/vim-go
+[submodule "jremmen/vim-ripgrep"]
+	path = .vim/pack/bundle/start/vim-ripgrep
+	url = https://github.com/jremmen/vim-ripgrep
+[submodule "junegunn/fzf.vim"]
+	path = .vim/pack/bundle/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "mattn/emmet-vim.git"]
+	path = .vim/pack/bundle/start/emmet-vim.git
 	url = https://github.com/mattn/emmet-vim.git
-[submodule ".vim/bundle/jellybeans.vim"]
-	path = .vim/bundle/jellybeans.vim
-	url = https://github.com/nanotech/jellybeans.vim
-[submodule ".vim/bundle/vim-exchange"]
-	path = .vim/bundle/vim-exchange
+[submodule "mattn/gist-vim"]
+	path = .vim/pack/bundle/start/gist-vim
+	url = https://github.com/mattn/gist-vim
+[submodule "mattn/webapi-vim"]
+	path = .vim/pack/bundle/start/webapi-vim
+	url = https://github.com/mattn/webapi-vim
+[submodule "ngmy/vim-rubocop"]
+	path = .vim/pack/bundle/start/vim-rubocop
+	url = https://github.com/ngmy/vim-rubocop
+[submodule "ryvnf/readline.vim"]
+	path = .vim/pack/bundle/start/readline.vim
+	url = https://github.com/ryvnf/readline.vim
+[submodule "sheerun/vim-polyglot"]
+	path = .vim/pack/bundle/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule "tommcdo/vim-exchange.git"]
+	path = .vim/pack/bundle/start/vim-exchange.git
 	url = https://github.com/tommcdo/vim-exchange.git
-[submodule ".vim/bundle/vim-jade"]
-	path = .vim/bundle/vim-jade
-	url = https://github.com/digitaltoad/vim-jade.git
-[submodule ".vim/bundle/vim-less"]
-	path = .vim/bundle/vim-less
-	url = https://github.com/groenewege/vim-less.git
-[submodule ".vim/bundle/vim-stylus"]
-	path = .vim/bundle/vim-stylus
-	url = https://github.com/wavded/vim-stylus.git
-[submodule ".vim/bundle/slimv"]
-	path = .vim/bundle/slimv
-	url = https://github.com/kovisoft/slimv.git
-[submodule ".vim/bundle/vim-literate-coffeescript"]
-	path = .vim/bundle/vim-literate-coffeescript
-	url = https://github.com/mintplant/vim-literate-coffeescript.git
-[submodule ".vim/bundle/vim-mustache-handlebars"]
-	path = .vim/bundle/vim-mustache-handlebars
-	url = git://github.com/mustache/vim-mustache-handlebars.git
-[submodule ".vim/bundle/mustache"]
-	path = .vim/bundle/mustache
-	url = git://github.com/mustache/vim-mustache-handlebars.git
+[submodule "tpope/vim-abolish"]
+	path = .vim/pack/bundle/start/vim-abolish
+	url = https://github.com/tpope/vim-abolish
+[submodule "tpope/vim-bundler"]
+	path = .vim/pack/bundle/start/vim-bundler
+	url = https://github.com/tpope/vim-bundler
+[submodule "tpope/vim-characterize"]
+	path = .vim/pack/bundle/start/vim-characterize
+	url = https://github.com/tpope/vim-characterize
+[submodule "tpope/vim-commentary"]
+	path = .vim/pack/bundle/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "tpope/vim-dispatch"]
+	path = .vim/pack/bundle/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "tpope/vim-endwise"]
+	path = .vim/pack/bundle/start/vim-endwise
+	url = https://github.com/tpope/vim-endwise
+[submodule "tpope/vim-eunuch"]
+	path = .vim/pack/bundle/start/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+[submodule "tpope/vim-fugitive"]
+	path = .vim/pack/bundle/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "tpope/vim-markdown"]
+	path = .vim/pack/bundle/start/vim-markdown
+	url = https://github.com/tpope/vim-markdown
+[submodule "tpope/vim-projectionist"]
+	path = .vim/pack/bundle/start/vim-projectionist
+	url = https://github.com/tpope/vim-projectionist
+[submodule "tpope/vim-rails"]
+	path = .vim/pack/bundle/start/vim-rails
+	url = https://github.com/tpope/vim-rails
+[submodule "tpope/vim-rake"]
+	path = .vim/pack/bundle/start/vim-rake
+	url = https://github.com/tpope/vim-rake
+[submodule "tpope/vim-repeat"]
+	path = .vim/pack/bundle/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule "tpope/vim-sleuth"]
+	path = .vim/pack/bundle/start/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth
+[submodule "tpope/vim-surround"]
+	path = .vim/pack/bundle/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "tpope/vim-tbone"]
+	path = .vim/pack/bundle/start/vim-tbone
+	url = https://github.com/tpope/vim-tbone
+[submodule "tpope/vim-unimpaired"]
+	path = .vim/pack/bundle/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
+[submodule "vim-airline/vim-airline"]
+	path = .vim/pack/bundle/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "vim-airline/vim-airline-themes"]
+	path = .vim/pack/bundle/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
