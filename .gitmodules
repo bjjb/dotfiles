@@ -115,3 +115,15 @@
 [submodule "SirVer/ultisnips"]
 	path = .vim/pack/bundle/start/ultisnips
 	url = https://github.com/SirVer/ultisnips
+[submodule ".vim/pack/bundle/start/vim-vinegar"]
+	path = .vim/pack/bundle/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule ".vim/pack/bundle/start/vim-dadbod"]
+	path = .vim/pack/bundle/start/vim-dadbod
+	url = https://github.com/tpope/vim-dadbod
+[submodule ".vim/pack/bundle/start/vim-heroku"]
+	path = .vim/pack/bundle/start/vim-heroku
+	url = https://github.com/tpope/vim-heroku
+[submodule ".vim/pack/bundle/start/vim-rhubarb"]
+	path = .vim/pack/bundle/start/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb
