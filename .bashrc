@@ -24,11 +24,11 @@ export EDITOR=vim
 export VISUAL=$EDITOR
 
 # Local environment overrides
-[ -e $HOME/.env ]       && . $HOME/.env
-[ -e $HOME/.env.local ] && . $HOME/.env.local
-[ -e $HOME/.localenv ]  && . $HOME/.localenv
+[ -e "$HOME/.env" ]       && . "$HOME/.env"
+[ -e "$HOME/.env.local" ] && . "$HOME/.env.local"
+[ -e "$HOME/.localenv" ]  && . "$HOME/.localenv"
 
-[ -d $HOME/.bash ] && for f in $HOME/.bash/*.bash; do . $f; done
+[ -d "$HOME/.bash" ] && for f in "$HOME"/.bash/*.bash; do . "$f"; done
 
 if [ -x /usr/bin/xclip ]
 then

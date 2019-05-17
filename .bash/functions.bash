@@ -6,7 +6,7 @@ set -o pipefail
 
 # Check whether an executable can be found
 have() {
-  which $@ > /dev/null
+  which "$@" > /dev/null
 }
 
 # Music Player Client
@@ -15,22 +15,22 @@ opus123 () {
   have opusdec out123 || echo "Need opusdec and out123" && return
   for f in "$@"
   do
-    opusdec --quiet --force-wav "$*" - | out123
+    opusdec --quiet --force-wav "$f" - | out123
   done
 }
 
 # git aliases
-g () { have git && git $*; }
+g () { have git && git "$@"; }
 
 # docker aliases
-d () { have docker && docker $*; }
-dm () { have docker-machine && docker-machine $@; }
+d () { have docker && docker "$@"; }
+dm () { have docker-machine && docker-machine "$@"; }
 devbox () { docker run --rm -it bjjb/devbox sh; }
-alpine () { docker run --rm -it bjjb/devbox:alpine ${*:-sh}; }
-ubuntu () { docker run --rm -it bjjb/devbox:ubuntu ${*:-bash}; }
+alpine () { docker run --rm -it bjjb/devbox:alpine "${*:-sh}"; }
+ubuntu () { docker run --rm -it bjjb/devbox:ubuntu "${*:-bash}"; }
 
 # tmux aliases
-tn () { tmux new-session -s ${1:-${PWD##*/}}; }
+tn () { tmux new-session -s "${1:-${PWD##*/}}"; }
 ta () { tmux attach-session; }
 
 # Randomize the args
@@ -66,6 +66,12 @@ transparentize () {
   input=${1:?'Usage: transparentize <input> <output>'}
   output=${2:?'Usage: transparentize <input> <output>'}
   convert "$input" -fill none -draw "color 1,1 floodfill" "$output"
+}
+
+# Connect to a Postgres database given a URL
+psqurl () {
+  dsn="${1?Missing URL!}"
+  docker run --rm -it postgres:alpine psql -h "$host" -U "$user" "$name"
 }
 
 # Source local functions also, if present.
