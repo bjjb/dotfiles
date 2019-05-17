@@ -37,10 +37,11 @@ if has('autocmd')
 end
 
 set shell=$SHELL
-set textwidth=78 tabstop=2 shiftwidth=2 smarttab expandtab visualbell number
-set textwidth=78 smarttab noexpandtab visualbell number
-set signcolumn=yes
+set textwidth=78 tabstop=2 shiftwidth=2 smarttab expandtab 
 set backspace=indent,eol,start
+set visualbell
+set number
+set signcolumn=yes
 set cc=+1
 set hlsearch incsearch
 set backspace=indent,eol,start
@@ -51,8 +52,7 @@ set autoread
 set ttimeout
 set hidden
 set ttimeoutlen=100
-set complete-=i
-set background=dark
+" set background=dark
 
 " set t_Co=256
 colorscheme iceberg
@@ -77,12 +77,6 @@ let g:airline_symbols.linenr = ''
 " syntastic-airline plugin
 let g:airline#extensions#syntastic#enabled = 1
 
-" Syntastic configuration
-let g:syntastic_error_symbol = "💥"
-let g:syntastic_warning_symbol = "⚠️"
-let g:syntastic_style_error_symbol = "😞"
-let g:syntastic_style_warning_symbol = "🙁"
-
 " Don't allow Tmuxline to overwrite the theme
 let g:airline#extensions#tmuxline#enabled = 0
 
@@ -105,6 +99,7 @@ let g:go_info_mode = 'guru'
 let g:go_auto_type_indo = 1
 let g:go_updatetime = 1000
 let g:go_fmt_fail_silently = 1
+let g:go_def_mode='gopls'
 autocmd FileType go set noexpandtab
 autocmd FileType go set shiftwidth=2
 autocmd FileType go set softtabstop=2
@@ -122,6 +117,8 @@ autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
+let g:ale_kotlin_ktlint_executable = 'ktlint'
 
 " I've found myself using the arrow keys! Need to stop!
 noremap <Up> <nop>
