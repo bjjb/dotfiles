@@ -127,3 +127,9 @@
 [submodule ".vim/pack/bundle/start/vim-rhubarb"]
 	path = .vim/pack/bundle/start/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb
+[submodule ".vim/pack/bundle/start/vim-sensible"]
+	path = .vim/pack/bundle/start/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
+[submodule ".vim/pack/bundle/start/vim-gradle"]
+	path = .vim/pack/bundle/start/vim-gradle
+	url = https://github.com/hdiniz/vim-gradle
