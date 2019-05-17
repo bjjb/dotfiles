@@ -1,6 +1,5 @@
-# Java environments
-if [ -d "$HOME/.jenv/bin" ]
+export SDKMAN_DIR="/home/bjjb/.sdkman"
+if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]
 then
-  export PATH="$HOME/.jenv/bin:$PATH"
-  eval "$(jenv init -)"
+  source "$HOME/.sdkman/bin/sdkman-init.sh"
 fi
