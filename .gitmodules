@@ -133,3 +133,9 @@
 [submodule ".vim/pack/bundle/start/vim-gradle"]
 	path = .vim/pack/bundle/start/vim-gradle
 	url = https://github.com/hdiniz/vim-gradle
+[submodule ".vim/pack/bundle/start/base16-vim"]
+	path = .vim/pack/bundle/start/base16-vim
+	url = https://github.com/chriskempson/base16-vim
+[submodule ".vim/pack/bundle/start/gruvbox"]
+	path = .vim/pack/bundle/start/gruvbox
+	url = https://github.com/morhetz/gruvbox
