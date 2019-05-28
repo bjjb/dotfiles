@@ -11,12 +11,8 @@ export LC_ALL=en_IE.UTF-8
 export EDITOR=vim
 export VISUAL=$EDITOR
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-if [ -d "$HOME/.sdkman" ]
+if [ -x /usr/bin/xclip ]
 then
-  export SDKMAN_DIR="$HOME/.sdkman"
-  if [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]
-  then
-    source "$SDKMAN_DIR/bin/sdkman-init.sh"
-  fi
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
 fi
