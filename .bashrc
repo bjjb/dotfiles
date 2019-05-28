@@ -24,14 +24,18 @@ export EDITOR=vim
 export VISUAL=$EDITOR
 
 # Local environment overrides
-[ -e "$HOME/.env" ]       && . "$HOME/.env"
-[ -e "$HOME/.env.local" ] && . "$HOME/.env.local"
-[ -e "$HOME/.localenv" ]  && . "$HOME/.localenv"
+for envfile in ".env" ".env.local" ".localenv"
+do
+  # shellcheck source=/dev/null
+  [ -e "$HOME/$envfile" ] && . "$HOME/$envfile"
+done
 
-[ -d "$HOME/.bash" ] && for f in "$HOME"/.bash/*.bash; do . "$f"; done
-
-if [ -x /usr/bin/xclip ]
+# Source these extra scripts
+if [ -d "$HOME/.bash" ]
 then
-  alias pbcopy='xclip -selection clipboard'
-  alias pbpaste='xclip -selection clipboard -o'
+  for script in $HOME/.bash/*.bash
+  do
+    # shellcheck source=/dev/null
+    . "$script"
+  done
 fi
