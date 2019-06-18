@@ -139,3 +139,6 @@
 [submodule ".vim/pack/bundle/start/gruvbox"]
 	path = .vim/pack/bundle/start/gruvbox
 	url = https://github.com/morhetz/gruvbox
+[submodule ".vim/pack/bundle/start/vim-shfmt"]
+	path = .vim/pack/bundle/start/vim-shfmt
+	url = git://github.com/z0mbix/vim-shfmt
