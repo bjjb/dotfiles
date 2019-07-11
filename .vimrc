@@ -149,4 +149,7 @@ let g:is_bash = 1
 " Emmet config
 let g:user_emmet_settings = { 'html' : { 'quote_char': "'" } }
 
+" Enable fzf
+set runtimepath+='~/.fzf'
+
 " vi:ft=vim
