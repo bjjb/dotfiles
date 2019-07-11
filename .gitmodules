@@ -142,3 +142,6 @@
 [submodule ".vim/pack/bundle/start/vim-shfmt"]
 	path = .vim/pack/bundle/start/vim-shfmt
 	url = git://github.com/z0mbix/vim-shfmt
+[submodule ".vim/pack/bundle/start/black"]
+	path = .vim/pack/bundle/start/black
+	url = https://github.com/python/black
