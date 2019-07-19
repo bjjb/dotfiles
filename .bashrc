@@ -24,6 +24,10 @@ export LC_ALL=en_IE.UTF-8
 export EDITOR=vim
 export VISUAL=$EDITOR
 
+# Workaround for
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=877582
+export QUOTING_STYLE=literal
+
 # Local environment overrides
 for envfile in ".env" ".env.local" ".localenv"
 do
