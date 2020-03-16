@@ -1,8 +1,0 @@
-#!/usr/bin/env ruby
-require 'active_support/core/extensions'
-require 'gmail'
-require 'nokogiri'
-Gmail.new(ENV['GMAIL_USERNAME'], ENV['GMAIL_PASSWORD']) do |gmail|
-  unread = gmail.inbox.count(:unread)
-  puts "You have #{unread} new #{'mail'.pluralize(unread)}" if unread > 0
-end

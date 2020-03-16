@@ -1,8 +1,4 @@
-# Loaded for interactive shells - sources ~/.bashrc and does some extra stuff
-# that's not necessary for non-interactive shells (such as prompting)
-
-# shellcheck source=./.bashrc
-[ -r "$HOME/.bashrc" ] && . "$HOME/.bashrc"
+# Loaded for interactive shells.
 
 # Hibernian English
 export LC_ALL=en_IE.UTF-8
@@ -10,11 +6,39 @@ export LC_ALL=en_IE.UTF-8
 # The best editor
 export EDITOR=vim
 export VISUAL=$EDITOR
+export GOPATH="$HOME"
 
-if [ -x /usr/bin/xclip ]
+[ "$(uname)" = "Darwin" ] && PATH=/usr/local/bin:$PATH
+
+# Workaround for
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=877582
+export QUOTING_STYLE=literal
+
+if [ -e "$HOME/.asdf" ]
+then # Load asdf (https://asdf-vm.com)
+  # shellcheck source=/dev/null
+  . "$HOME/.asdf/asdf.sh"
+  # shellcheck source=/dev/null
+  . "$HOME/.asdf/completions/asdf.bash"
+fi
+
+# Load starship (https://starship.rs)
+command -v starship > /dev/null && eval "$(starship init bash)"
+
+# Load fzf (https://github.com/junegunn/fzf)
+# shellcheck source=/dev/null
+[ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
+
+# Set up an SSH agent, and add standard identities
+if [ "$SSH_AGENT_PID" = "" ] && command -v ssh-agent > /dev/null
 then
+  eval "$(ssh-agent)"
+  command -v ssh-add > /dev/null && ssh-add
+fi
+
+# Add pasteboard-like commmands to platforms that need it and can supply it
+if [ "$(uname)" != "Darwin" ] && command -v xclip > /dev/null
+then # add clipboard functionality
   alias pbcopy='xclip -selection clipboard'
   alias pbpaste='xclip -selection clipboard -o'
 fi
-
-export PATH="$HOME/.poetry/bin:$PATH"

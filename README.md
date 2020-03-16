@@ -1,15 +1,24 @@
-My standard *nix dotfiles. Nothing terribly fancy. Configures
+JJ's dot-files
+==============
 
-* bash
-* vim
-* tmux
-* git
-* programmerey doodads
-* probably some other gimmicks
+My standard *nix dotfiles. Provides a fairly convenient Bash environment, with
+a prompt by [starship](https://starship.rs), programmery do-dads provided by
+[asdf](https://asdf-vm.com), a [Vim](http://vim.org) configuration, and
+sundry settings, completions, functions, and whatnot. It use it to reasonable
+effect on FreeBSD, Ubuntu and MacOS.
 
-and has some small programs that aren't worthy of extracting into their own
-projects.
+Installation
+------------
 
-run `git clone git://github.com/bjjb/dotfiles .files; .files/install` to
-install. It's pretty brutal, so don't do it if you like your existing
-configuration.
+Clone the repo and symlink the `.bash_profile` into your home directory. Or
+include the `.bash_profile` into one of your startup scripts, or whatever.
+You can also symlink `.vimrc` and `.vim` into your home directory, cd into
+`.vim` and run `git submodule update` to get all the Vim plugins.
+
+Caveats
+-------
+
+You're free to use and abuse anything you find here, but it comes with no
+warranty whatsoever.
+
+Have fun!
