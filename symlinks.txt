@@ -1,0 +1,9 @@
+.bash_profile
+.vim
+.vimrc
+.tmux
+.tmux.conf
+.asdf
+.fzf
+.tool-versions
+.Xdefaults

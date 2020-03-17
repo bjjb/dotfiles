@@ -10,10 +10,12 @@ effect on FreeBSD, Ubuntu and MacOS.
 Installation
 ------------
 
-Clone the repo and symlink the `.bash_profile` into your home directory. Or
-include the `.bash_profile` into one of your startup scripts, or whatever.
-You can also symlink `.vimrc` and `.vim` into your home directory, cd into
-`.vim` and run `git submodule update` to get all the Vim plugins.
+(You'll need git and curl.)
+
+    curl -Ls https://uri.gy/XX | bash
+
+Source `.bash_profile` (or log out and back in again) to activate the
+environment.
 
 Caveats
 -------

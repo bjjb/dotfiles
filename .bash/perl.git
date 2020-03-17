@@ -1,3 +1,0 @@
-# Local perl installation
-perl="$HOME/perl5/perlbrew/etc/bashrc"
-[ -f "$perl" ] && . $perl
