@@ -10,10 +10,11 @@ export VISUAL=$EDITOR
 # Easier Go use
 export GOPATH="$HOME"
 
-if [ "$(uname)" = "Darwin" && command -v brew > /dev/null ]
+if [ "$(uname)" = "Darwin" ] && command -v brew > /dev/null
 then
 	prefix="$(brew --prefix)"
 	PATH="$prefix/bin:$PATH"
+	# shellcheck source=/dev/null
 	[ -f "$prefix/etc/bash_completion" ] && . "$prefix/etc/bash_completion"
 fi
 
