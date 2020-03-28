@@ -115,9 +115,6 @@
 [submodule ".vim/pack/bundle/start/limelight.vim"]
 	path = .vim/pack/bundle/start/limelight.vim
 	url = https://github.com/junegunn/limelight.vim
-[submodule ".vim/pack/bundle/start/ultisnips"]
-	path = .vim/pack/bundle/start/ultisnips
-	url = https://github.com/SirVer/ultisnips
 [submodule ".vim/pack/bundle/start/vim-dadbod"]
 	path = .vim/pack/bundle/start/vim-dadbod
 	url = https://github.com/tpope/vim-dadbod
