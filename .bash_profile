@@ -18,6 +18,11 @@ then
 	[ -f "$prefix/etc/bash_completion" ] && . "$prefix/etc/bash_completion"
 fi
 
+if [ -d /usr/local/opt/openjdk/bin ]
+then
+	PATH="/usr/local/opt/openjdk/bin:$PATH"
+fi
+
 # Workaround for
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=877582
 export QUOTING_STYLE=literal
@@ -50,4 +55,9 @@ if [ "$(uname)" != "Darwin" ] && command -v xclip > /dev/null
 then # add clipboard functionality
 	alias pbcopy='xclip -selection clipboard'
 	alias pbpaste='xclip -selection clipboard -o'
+fi
+
+if [ -d "$HOME/.local/share/completion" ]
+then
+	for f in $HOME/.local/share/completion/*.bash; do . "$f"; done
 fi
