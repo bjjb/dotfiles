@@ -46,7 +46,7 @@ command -v starship > /dev/null && eval "$(starship init bash)"
 # Set up an SSH agent, and add standard identities
 if [ "$SSH_AGENT_PID" = "" ] && command -v ssh-agent > /dev/null
 then
-	eval "$(ssh-agent)"
+	eval "$(ssh-agent)" > /dev/null
 	command -v ssh-add > /dev/null && ssh-add -q
 fi
 
