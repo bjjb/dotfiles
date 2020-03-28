@@ -47,7 +47,7 @@ command -v starship > /dev/null && eval "$(starship init bash)"
 if [ "$SSH_AGENT_PID" = "" ] && command -v ssh-agent > /dev/null
 then
 	eval "$(ssh-agent)"
-	command -v ssh-add > /dev/null && ssh-add
+	command -v ssh-add > /dev/null && ssh-add -q
 fi
 
 # Add pasteboard-like commmands to platforms that need it and can supply it
