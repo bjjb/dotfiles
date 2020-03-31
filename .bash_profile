@@ -13,7 +13,7 @@ export GOPATH="$HOME"
 if [ "$(uname)" = "Darwin" ] && command -v brew > /dev/null
 then
 	prefix="$(brew --prefix)"
-	PATH="$prefix/bin:$PATH"
+	PATH="$prefix/sbin:$prefix/bin:$PATH"
 	# shellcheck source=/dev/null
 	[ -f "$prefix/etc/bash_completion" ] && . "$prefix/etc/bash_completion"
 fi
@@ -60,4 +60,14 @@ fi
 if [ -d "$HOME/.local/share/completion" ]
 then
 	for f in $HOME/.local/share/completion/*.bash; do . "$f"; done
+fi
+
+if [ -e "$HOME/.env" ]
+then
+	. "$HOME/.env"
+fi
+
+if [ -e "$HOME/.env.local" ]
+then
+	. "$HOME/.env.local"
 fi
