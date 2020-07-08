@@ -71,3 +71,6 @@ if [ -e "$HOME/.env.local" ]
 then
 	. "$HOME/.env.local"
 fi
+
+GPG_TTY="$(tty)"
+export GPG_TTY
