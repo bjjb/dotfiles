@@ -12,7 +12,7 @@ Installation
 
 (You'll need git and curl.)
 
-    curl -Ls https://uri.gy/9J | sh
+    curl -Ls https://uri.gy/i | sh
 
 Source `.bash_profile` (or log out and back in again) to activate the
 environment.
