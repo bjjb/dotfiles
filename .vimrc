@@ -8,8 +8,10 @@ if has('syntax') && !exists('g:syntax_on')
 end
 
 if has('gui_running')
-  set guifont=Hack\ Regular:h14
-  set guioptions=aemP
+  set guifont=Hack\ 14
+  set guioptions-=m " no menubar
+  set guioptions-=T " no toolbar
+  set guioptions-=r " no right-hand scrollbar
   function! ConqueMan()
     let cmd = &keywordprg . ' '
     if cmd ==# 'man ' || cmd ==# 'man -s '
