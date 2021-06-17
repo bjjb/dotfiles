@@ -15,7 +15,13 @@ then
 	prefix="$(brew --prefix)"
 	PATH="$prefix/sbin:$prefix/bin:$PATH"
 	# shellcheck source=/dev/null
-	[ -f "$prefix/etc/bash_completion" ] && . "$prefix/etc/bash_completion"
+	if [ -d "$prefix/etc/bash_completion" ]
+	then
+		for f in "$prefix"/etc/bash_completion/*
+		do
+			. "$f"
+		done
+	fi
 fi
 
 if [ -d /usr/local/opt/openjdk/bin ]
@@ -59,18 +65,21 @@ fi
 
 if [ -d "$HOME/.local/share/completion" ]
 then
-	for f in $HOME/.local/share/completion/*.bash; do . "$f"; done
+	for f in "$HOME"/.local/share/completion/*.bash
+	do
+		# shellcheck source=/dev/null
+		. "$f"
+	done
 fi
 
-if [ -e "$HOME/.env" ]
-then
-	. "$HOME/.env"
-fi
+[ -d "$HOME/bin" ] && PATH=$HOME/bin:$PATH
+[ -d "$HOME/sbin" ] && PATH=$HOME/sbin:$PATH
 
-if [ -e "$HOME/.env.local" ]
-then
-	. "$HOME/.env.local"
-fi
+# shellcheck disable=SC1091
+[ -e "$HOME/.env" ] && . "$HOME/.env"
+
+# shellcheck disable=SC1091
+[ -e "$HOME/.env.local" ] && . "$HOME/.env.local"
 
 GPG_TTY="$(tty)"
 export GPG_TTY
