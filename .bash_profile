@@ -15,12 +15,9 @@ then
 	prefix="$(brew --prefix)"
 	PATH="$prefix/sbin:$prefix/bin:$PATH"
 	# shellcheck source=/dev/null
-	if [ -d "$prefix/etc/bash_completion" ]
+	if [ -f "$prefix/etc/bash_completion" ]
 	then
-		for f in "$prefix"/etc/bash_completion/*
-		do
-			. "$f"
-		done
+		. "$prefix/etc/bash_completion"
 	fi
 fi
 
@@ -61,15 +58,6 @@ if [ "$(uname)" != "Darwin" ] && command -v xclip > /dev/null
 then # add clipboard functionality
 	alias pbcopy='xclip -selection clipboard'
 	alias pbpaste='xclip -selection clipboard -o'
-fi
-
-if [ -d "$HOME/.local/share/completion" ]
-then
-	for f in "$HOME"/.local/share/completion/*.bash
-	do
-		# shellcheck source=/dev/null
-		. "$f"
-	done
 fi
 
 [ -d "$HOME/bin" ] && PATH=$HOME/bin:$PATH

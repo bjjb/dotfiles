@@ -31,9 +31,6 @@
 [submodule ".vim/pack/bundle/start/vim-go"]
 	path = .vim/pack/bundle/start/vim-go
 	url = https://github.com/fatih/vim-go
-[submodule ".vim/pack/bundle/start/vim-ripgrep"]
-	path = .vim/pack/bundle/start/vim-ripgrep
-	url = https://github.com/jremmen/vim-ripgrep
 [submodule ".vim/pack/bundle/start/emmet-vim.git"]
 	path = .vim/pack/bundle/start/emmet-vim.git
 	url = https://github.com/mattn/emmet-vim.git
@@ -139,3 +136,6 @@
 [submodule ".vim/pack/bundle/start/vim-shfmt"]
 	path = .vim/pack/bundle/start/vim-shfmt
 	url = git://github.com/z0mbix/vim-shfmt
+[submodule ".vim/pack/bundle/start/goyo"]
+	path = .vim/pack/bundle/start/goyo
+	url = git://github.com/junegunn/goyo.vim

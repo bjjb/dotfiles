@@ -54,11 +54,6 @@ set autoread
 set ttimeout
 set hidden
 set ttimeoutlen=100
-" set background=dark
-
-" set t_Co=256
-colorscheme iceberg
-" colorscheme dracula
 
 " Airline (status-bar) config
 " unicode symbols (require a suitable font, like Hack)
@@ -74,13 +69,19 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-" let g:airline_theme = 'lucius'
-
 " syntastic-airline plugin
 let g:airline#extensions#syntastic#enabled = 1
-
 " Don't allow Tmuxline to overwrite the theme
 let g:airline#extensions#tmuxline#enabled = 0
+
+" Colour-scheme
+" set t_Co=256
+set background=dark
+colorscheme gruvbox
+" Hint for Limelight to darken un-highlighted text (as it can't guess the best
+" concealer colour from gruvbox)
+let g:limelight_conceal_ctermfg = 240
+
 
 " Command-mode editing - behave like readline
 cnoremap <C-A> <Home>
@@ -154,5 +155,9 @@ let g:user_emmet_settings = { 'html' : { 'quote_char': "'" } }
 
 " Enable fzf
 set runtimepath+='~/.fzf'
+
+" Configure Goyo to use Limelight
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 " vi:ft=vim
