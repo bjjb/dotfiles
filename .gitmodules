@@ -19,9 +19,6 @@
 [submodule ".vim/pack/bundle/start/ctrlp.vim"]
 	path = .vim/pack/bundle/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim
-[submodule ".vim/pack/bundle/start/vim"]
-	path = .vim/pack/bundle/start/vim
-	url = https://github.com/dracula/vim
 [submodule ".vim/pack/bundle/start/editorconfig-vim"]
 	path = .vim/pack/bundle/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
@@ -139,3 +136,9 @@
 [submodule ".vim/pack/bundle/start/goyo"]
 	path = .vim/pack/bundle/start/goyo
 	url = git://github.com/junegunn/goyo.vim
+[submodule ".vim/pack/bundle/start/ack.vim"]
+	path = .vim/pack/bundle/start/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
+[submodule ".vim/pack/bundle/start/vim-emoji-complete"]
+	path = .vim/pack/bundle/start/vim-emoji-complete
+	url = https://github.com/kyuhi/vim-emoji-complete.git

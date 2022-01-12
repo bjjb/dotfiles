@@ -160,4 +160,7 @@ set runtimepath+='~/.fzf'
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
+" Configure :Ack to use the_silver_searcher.
+let g:ackprg = 'ag --vimgrep'
+
 " vi:ft=vim

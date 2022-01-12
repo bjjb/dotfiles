@@ -6,6 +6,14 @@ ruby 3.0.2
 crystal 1.1.1
 nim 1.4.8
 elixir 1.12
-erlang 23.0.3
+erlang 24.1.2
 k9s 0.24.10
-minikube 1.20.0
+minikube 1.24.0
+postgres 12.2
+sqlite 3.29.0
+terraform 1.0.8
+python 3.9.1
+golang 1.17.2
+helm 3.7.1
+fluxctl 1.24.3
+hey v0.1.4
