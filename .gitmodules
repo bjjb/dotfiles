@@ -139,6 +139,9 @@
 [submodule ".vim/pack/bundle/start/ack.vim"]
 	path = .vim/pack/bundle/start/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
-[submodule ".vim/pack/bundle/start/vim-emoji-complete"]
-	path = .vim/pack/bundle/start/vim-emoji-complete
-	url = https://github.com/kyuhi/vim-emoji-complete.git
+[submodule ".vim/pack/bundle/start/vim-ripgrep"]
+	path = .vim/pack/bundle/start/vim-ripgrep
+	url = git://github.com/jremmen/vim-ripgrep
+[submodule ".vim/pack/bundle/start/vim-emoji"]
+	path = .vim/pack/bundle/start/vim-emoji
+	url = git://github.com/junegunn/vim-emoji
