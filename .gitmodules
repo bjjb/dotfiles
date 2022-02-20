@@ -148,3 +148,6 @@
 [submodule ".vim/pack/bundle/start/vim-crystal"]
 	path = .vim/pack/bundle/start/vim-crystal
 	url = https://github.com/vim-crystal/vim-crystal.git
+[submodule ".vim/pack/bundle/start/vim-emoji-ab"]
+	path = .vim/pack/bundle/start/vim-emoji-ab
+	url = https://gitlab.com/gi1242/vim-emoji-ab.git
