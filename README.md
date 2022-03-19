@@ -15,7 +15,7 @@ recommend `$XDG_CONFIG_HOME/dotfiles` on most Unixes, or
 
 Depending on your shell/editor/whatever preferences, run
 
-    stow bash asdf vim
+    stow -t $HOME bash asdf vim x
 
 That'll set up symlinks to config files for [Bash]
 

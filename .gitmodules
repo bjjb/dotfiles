@@ -1,0 +1,6 @@
+[submodule "asdf/.asdf"]
+	path = asdf/.asdf
+	url = https://github.com/asdf-vm/asdf.git
+[submodule "vim/.vim/pack/bjjb/start/vim-polyglot"]
+	path = vim/.vim/pack/bjjb/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot

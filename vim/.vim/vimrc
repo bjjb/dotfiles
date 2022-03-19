@@ -1,5 +1,5 @@
 " Environment variables {{{
-let $VIMRC=$HOME/.vim/vimrc
+let $VIMRC="$HOME/.vim/vimrc"
 " }}}
 
 " Basic settings {{{
