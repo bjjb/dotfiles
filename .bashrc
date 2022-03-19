@@ -1,1 +1,0 @@
-/Users/bjjb/.local/share/dotfiles/.bash_profile

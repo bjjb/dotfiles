@@ -1,0 +1,45 @@
+" Environment variables {{{
+let $VIMRC=$HOME/.vim/vimrc
+" }}}
+
+" Basic settings {{{
+filetype plugin indent on
+syntax on
+" }}}
+
+" Settings {{{
+set backspace=indent,eol,start
+set formatoptions=tcroql
+set wildmenu
+set expandtab
+set hidden
+set path=.,**
+set noerrorbells
+set incsearch
+" }}}
+
+" Navigation {{{
+" argument list
+nnoremap [a :previous<CR>
+nnoremap ]a :next<CR>
+nnoremap [A :first<CR>
+nnoremap ]A :last<CR>
+" quickfix list
+nnoremap [c :cprevious<CR>
+nnoremap ]c :cnext<CR>
+nnoremap [C :cfirst<CR>
+nnoremap ]C :clast<CR>
+" location list
+nnoremap [l :lprevious<CR>
+nnoremap ]l :lnext<CR>
+nnoremap [l :lfirst<CR>
+nnoremap ]l :llast<CR>
+" buffer list
+nnoremap [b :bprevious<CR>
+nnoremap ]b :bnext<CR>
+nnoremap [b :bfirst<CR>
+nnoremap ]b :blast<CR>
+" }}}
+
+" Plugins {{{
+" }}}

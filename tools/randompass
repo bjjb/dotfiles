@@ -1,2 +1,3 @@
 #! /bin/sh
+# Generates a password
 openssl rand -base64 9

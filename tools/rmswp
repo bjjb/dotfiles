@@ -1,2 +1,3 @@
 #! /bin/sh
+# Finds and deletes Vim swap files.
 find . -name '.*.sw?' -type f -exec rm -rvf '{}' \;

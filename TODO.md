@@ -1,4 +1,0 @@
-- [ ] Change vim package management
-- [ ] Differentate between login and non-login shells
-- [ ] Fix starship under tmux
-- [ ] Add a user bash completion dir

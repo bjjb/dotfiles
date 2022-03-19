@@ -1,8 +1,0 @@
-.DS_Store
-tags
-.*.sw?
-.togra
-tmux-client-*.log
-TODO.bjjb.*
-Vagrantfile
-vagrant
