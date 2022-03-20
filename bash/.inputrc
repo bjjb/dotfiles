@@ -1,2 +1,3 @@
-# readline configuration
-TAB:menu-complete
+# $if Bash
+#   TAB: menu-complete
+# $endif
