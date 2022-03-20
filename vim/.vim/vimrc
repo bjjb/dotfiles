@@ -1,10 +1,12 @@
+set nocompatible
+
 " Environment variables {{{
 let $VIMRC="$HOME/.vim/vimrc"
 " }}}
 
 " Basic settings {{{
+syntax enable
 filetype plugin indent on
-syntax on
 " }}}
 
 " Settings {{{
@@ -16,6 +18,9 @@ set hidden
 set path=.,**
 set noerrorbells
 set incsearch
+set autoindent
+set laststatus=2
+set ruler
 " }}}
 
 " Navigation {{{
@@ -43,3 +48,6 @@ nnoremap ]b :blast<CR>
 
 " Plugins {{{
 " }}}
+
+set background=dark
+colorscheme gruvbox

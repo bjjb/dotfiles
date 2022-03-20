@@ -4,3 +4,36 @@
 [submodule "vim/.vim/pack/bjjb/start/vim-polyglot"]
 	path = vim/.vim/pack/bjjb/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
+[submodule "vim/.vim/pack/bjjb/start/rust.vim"]
+	path = vim/.vim/pack/bjjb/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule "vim/.vim/pack/bjjb/start/async.vim"]
+	path = vim/.vim/pack/bjjb/start/async.vim
+	url = https://github.com/prabirshrestha/async.vim
+[submodule "vim/.vim/pack/bjjb/start/vim-lsp"]
+	path = vim/.vim/pack/bjjb/start/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp
+[submodule "vim/.vim/pack/bjjb/start/asyncomplete.vim"]
+	path = vim/.vim/pack/bjjb/start/asyncomplete.vim
+	url = https://github.com/prabirshrestha/asyncomplete.vim
+[submodule "vim/.vim/pack/bjjb/start/asyncomplete-lsp.vim"]
+	path = vim/.vim/pack/bjjb/start/asyncomplete-lsp.vim
+	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim
+[submodule "vim/.vim/pack/bjjb/start/gruvbox"]
+	path = vim/.vim/pack/bjjb/start/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
+[submodule "vim/.vim/pack/bjjb/start/goyo.vim"]
+	path = vim/.vim/pack/bjjb/start/goyo.vim
+	url = https://github.com/junegunn/goyo.vim.git
+[submodule "vim/.vim/pack/bjjb/start/limelight.vim"]
+	path = vim/.vim/pack/bjjb/start/limelight.vim
+	url = https://github.com/junegunn/limelight.vim.git
+[submodule "vim/.vim/pack/bjjb/start/fzf.vim"]
+	path = vim/.vim/pack/bjjb/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "vim/.vim/pack/bjjb/start/asyncomplete-ale.vim"]
+	path = vim/.vim/pack/bjjb/start/asyncomplete-ale.vim
+	url = https://github.com/andreypopp/asyncomplete-ale.vim
+[submodule "vim/.vim/pack/bjjb/start/ale"]
+	path = vim/.vim/pack/bjjb/start/ale
+	url = https://github.com/dense-analysis/ale.git
