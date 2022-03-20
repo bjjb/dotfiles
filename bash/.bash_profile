@@ -26,3 +26,7 @@ then
 fi
 
 hash starship && . <(starship init bash)
+
+GPG_TTY="$(tty)"
+
+# vi:ft=bash
