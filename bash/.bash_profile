@@ -1,32 +1,12 @@
-# Sourced by Bash login shells.
+[[ -f "$HOME/.profile" ]] && . "$HOME/.profile"
+[[ -f "$HOME/.bashrc" ]]  && . "$HOME/.bashrc"
 
-if [[ -f "$HOME/.bashrc" ]]
-then
-    . "$HOME/.bashrc"
-fi
+[[ -f "$HOME/.asdf/completions/asdf.bash" ]] && . "$HOME/.asdf/completions/asdf.bash"
 
-if [[ -f "$HOME/.profile" ]]
-then
-    . "$HOME/.profile"
-fi
-
-if [[ -f /usr/local/etc/bash_completion ]]
-then
-     . "/usr/local/etc/bash_completion"
-fi
-
-if [[ -f "$HOME/.asdf/asdf.sh" ]]
-then
-    . "$HOME/.asdf/asdf.sh"
-fi
-
-if [[ -f "$HOME/.asdf/completions/asdf.bash" ]]
-then
-    . "$HOME/.asdf/completions/asdf.bash"
-fi
-
+hash brew     && . <(cat "$(brew --prefix)/etc/bash_completion.d/"*)
 hash starship && . <(starship init bash)
-
-GPG_TTY="$(tty)"
+hash gpg      && export GPG_TTY="$(tty)"
+hash aws      && complete -C aws_completer aws
+hash kubectl  && . <(kubectl completion bash)
 
 # vi:ft=bash
