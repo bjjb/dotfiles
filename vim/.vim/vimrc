@@ -1,53 +1,31 @@
 set nocompatible
 
-" Environment variables {{{
-let $VIMRC="$HOME/.vim/vimrc"
-" }}}
-
-" Basic settings {{{
-syntax enable
-filetype plugin indent on
-" }}}
-
 " Settings {{{
-set backspace=indent,eol,start
-set formatoptions=tcroql
-set wildmenu
-set expandtab
-set hidden
-set path=.,**
-set noerrorbells
-set incsearch
-set autoindent
-set laststatus=2
-set ruler
+packadd! sensible		" Sane defaults
+packadd! sleuth			" Autodetected buffer settings
 " }}}
 
-" Navigation {{{
-" argument list
-nnoremap [a :previous<CR>
-nnoremap ]a :next<CR>
-nnoremap [A :first<CR>
-nnoremap ]A :last<CR>
-" quickfix list
-nnoremap [c :cprevious<CR>
-nnoremap ]c :cnext<CR>
-nnoremap [C :cfirst<CR>
-nnoremap ]C :clast<CR>
-" location list
-nnoremap [l :lprevious<CR>
-nnoremap ]l :lnext<CR>
-nnoremap [l :lfirst<CR>
-nnoremap ]l :llast<CR>
-" buffer list
-nnoremap [b :bprevious<CR>
-nnoremap ]b :bnext<CR>
-nnoremap [b :bfirst<CR>
-nnoremap ]b :blast<CR>
+" General programming helpers {{{
+packadd! abolish		" Work with variants of words
+packadd! apathy			" Set some miscellaneous path vars
+packadd! commentary		" Better commenting
+packadd! endwise		" Adds `ends` to languages where it makes sense
+packadd! projectionist		" Honour a project-wide .projectionist.json
+packadd! repeat			" Make . work more often
+packadd! surround		" For changing brackets, quotes, etc
+packadd! unimpaired		" Handy [] mappings
 " }}}
 
-" Plugins {{{
+" Add-ons {{{
+packadd! dadbod			" DB front-end
+packadd! fugitive		" Git front-end
+packadd! fzf			" Fuzzy finder
+packadd! goyo			" Focused text
+packadd! limelight		" Even more focused text
 " }}}
 
-set background=dark
-colorscheme gruvbox
+" Theme {{{
+packadd! emoji			" Emoji support
+packadd! dracula		" Dark theme
+colorscheme dracula
+" }}}

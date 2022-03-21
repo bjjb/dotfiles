@@ -1,39 +1,69 @@
 [submodule "asdf/.asdf"]
 	path = asdf/.asdf
 	url = https://github.com/asdf-vm/asdf.git
-[submodule "vim/.vim/pack/bjjb/start/vim-polyglot"]
-	path = vim/.vim/pack/bjjb/start/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot
-[submodule "vim/.vim/pack/bjjb/start/rust.vim"]
-	path = vim/.vim/pack/bjjb/start/rust.vim
-	url = https://github.com/rust-lang/rust.vim
-[submodule "vim/.vim/pack/bjjb/start/async.vim"]
-	path = vim/.vim/pack/bjjb/start/async.vim
-	url = https://github.com/prabirshrestha/async.vim
-[submodule "vim/.vim/pack/bjjb/start/vim-lsp"]
-	path = vim/.vim/pack/bjjb/start/vim-lsp
-	url = https://github.com/prabirshrestha/vim-lsp
-[submodule "vim/.vim/pack/bjjb/start/asyncomplete.vim"]
-	path = vim/.vim/pack/bjjb/start/asyncomplete.vim
-	url = https://github.com/prabirshrestha/asyncomplete.vim
-[submodule "vim/.vim/pack/bjjb/start/asyncomplete-lsp.vim"]
-	path = vim/.vim/pack/bjjb/start/asyncomplete-lsp.vim
-	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim
-[submodule "vim/.vim/pack/bjjb/start/gruvbox"]
-	path = vim/.vim/pack/bjjb/start/gruvbox
+[submodule "vim/.vim/pack/theme/opt/molokai"]
+	path = vim/.vim/pack/theme/opt/molokai
+	url = https://github.com/tomasr/molokai.git
+[submodule "vim/.vim/pack/theme/opt/gruvbox"]
+	path = vim/.vim/pack/theme/opt/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
-[submodule "vim/.vim/pack/bjjb/start/goyo.vim"]
-	path = vim/.vim/pack/bjjb/start/goyo.vim
+[submodule "vim/.vim/pack/theme/opt/dracula"]
+	path = vim/.vim/pack/theme/opt/dracula
+	url = https://github.com/dracula/vim.git
+[submodule "vim/.vim/pack/theme/opt/iceberg"]
+	path = vim/.vim/pack/theme/opt/iceberg
+	url = https://github.com/cocopon/iceberg.vim.git
+[submodule "vim/.vim/pack/theme/opt/jellybeans"]
+	path = vim/.vim/pack/theme/opt/jellybeans
+	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule "vim/.vim/pack/tpope/opt/sensible"]
+	path = vim/.vim/pack/tpope/opt/sensible
+	url = https://github.com/tpope/vim-sensible.git
+[submodule "vim/.vim/pack/tpope/opt/commentary"]
+	path = vim/.vim/pack/tpope/opt/commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim/.vim/pack/tpope/opt/endwise"]
+	path = vim/.vim/pack/tpope/opt/endwise
+	url = https://github.com/tpope/vim-endwise.git
+[submodule "vim/.vim/pack/tpope/opt/sleuth"]
+	path = vim/.vim/pack/tpope/opt/sleuth
+	url = https://github.com/tpope/vim-sleuth.git
+[submodule "vim/.vim/pack/tpope/opt/projectionist"]
+	path = vim/.vim/pack/tpope/opt/projectionist
+	url = https://github.com/tpope/vim-projectionist.git
+[submodule "vim/.vim/pack/tpope/opt/dispatch"]
+	path = vim/.vim/pack/tpope/opt/dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "vim/.vim/pack/tpope/opt/fugitive"]
+	path = vim/.vim/pack/tpope/opt/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/.vim/pack/tpope/opt/abolish"]
+	path = vim/.vim/pack/tpope/opt/abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule "vim/.vim/pack/tpope/opt/apathy"]
+	path = vim/.vim/pack/tpope/opt/apathy
+	url = https://github.com/tpope/vim-apathy.git
+[submodule "vim/.vim/pack/tpope/opt/surround"]
+	path = vim/.vim/pack/tpope/opt/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/.vim/pack/tpope/opt/dadbod"]
+	path = vim/.vim/pack/tpope/opt/dadbod
+	url = https://github.com/tpope/vim-dadbod.git
+[submodule "vim/.vim/pack/tpope/opt/unimpaired"]
+	path = vim/.vim/pack/tpope/opt/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "vim/.vim/pack/tpope/opt/repeat"]
+	path = vim/.vim/pack/tpope/opt/repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "vim/.vim/pack/junegunn/opt/goyo"]
+	path = vim/.vim/pack/junegunn/opt/goyo
 	url = https://github.com/junegunn/goyo.vim.git
-[submodule "vim/.vim/pack/bjjb/start/limelight.vim"]
-	path = vim/.vim/pack/bjjb/start/limelight.vim
+[submodule "vim/.vim/pack/junegunn/opt/limelight"]
+	path = vim/.vim/pack/junegunn/opt/limelight
 	url = https://github.com/junegunn/limelight.vim.git
-[submodule "vim/.vim/pack/bjjb/start/fzf.vim"]
-	path = vim/.vim/pack/bjjb/start/fzf.vim
+[submodule "vim/.vim/pack/junegunn/opt/fzf"]
+	path = vim/.vim/pack/junegunn/opt/fzf
 	url = https://github.com/junegunn/fzf.vim.git
-[submodule "vim/.vim/pack/bjjb/start/asyncomplete-ale.vim"]
-	path = vim/.vim/pack/bjjb/start/asyncomplete-ale.vim
-	url = https://github.com/andreypopp/asyncomplete-ale.vim
-[submodule "vim/.vim/pack/bjjb/start/ale"]
-	path = vim/.vim/pack/bjjb/start/ale
-	url = https://github.com/dense-analysis/ale.git
+[submodule "vim/.vim/pack/junegunn/opt/emoji"]
+	path = vim/.vim/pack/junegunn/opt/emoji
+	url = https://github.com/junegunn/vim-emoji.git
