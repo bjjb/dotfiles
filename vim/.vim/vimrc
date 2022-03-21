@@ -15,12 +15,16 @@ packadd! repeat						" Make . work more often
 packadd! surround					" For changing brackets, quotes, etc
 packadd! unimpaired				" Handy [] mappings
 packadd! polyglot					" Loads of syntax and indent plugins
+
+set number
+set relativenumber
 " }}}
 
 " Specific language plugins {{{
-packadd! go			" golang
-packadd! rust		" rust
-packadd! rake		" ruby
+packadd! crystal	" crystal
+packadd! go				" golang
+packadd! rake			" ruby
+packadd! rust			" rust
 " }}}
 
 " LSP and auto-linting {{{

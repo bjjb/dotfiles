@@ -97,3 +97,6 @@
 [submodule "vim/.vim/pack/tpope/opt/rake"]
 	path = vim/.vim/pack/tpope/opt/rake
 	url = https://github.com/tpope/vim-rake
+[submodule "vim/.vim/pack/vim-crystal/opt/crystal"]
+	path = vim/.vim/pack/vim-crystal/opt/crystal
+	url = https://github.com/vim-crystal/vim-crystal.git
