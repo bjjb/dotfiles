@@ -13,5 +13,10 @@ on a plugin for plugin management, I like to use Vim 8's built-in package
 management, and add the packages as submodules. So to add, for example, the
 AndrewRadev/splitjoin.vim plugin, I'd run (from this directory)
 
-    git submodule init
-    git submodule add https://github.com/AndrewRadev/splitjoin.vim .vim/pack/bjjb/start/splitjoin.vim
+    git submodule add https://github.com/AndrewRadev/splitjoin.vim .vim/pack/AndrewRadev/opt/splitjoin
+
+Then I could include this in the `.vim/vimrc` with
+
+```viml
+packadd! splitjoin
+```

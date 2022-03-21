@@ -17,14 +17,15 @@ packadd! unimpaired		" Handy [] mappings
 packadd! polyglot		" Loads of syntax and indent plugins
 " }}}
 
+" Specific language plugins {{{
+packadd! go
+packadd! rust
+" }}}
+
 " LSP and auto-linting {{{
 packadd! ale			" Asynchronous Linting Engine
 packadd! lsp			" Language Server Protocol
-packadd! lspale			" LSP for ALE
-" }}}
-
-" Specific language plugins {{{
-packadd! go				" Go goodness
+packadd! lspale		" LSP for ALE
 " }}}
 
 " Add-ons {{{

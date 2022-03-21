@@ -19,22 +19,6 @@ Depending on your shell/editor/whatever preferences, run
 
 That'll set up symlinks to config files for [Bash]
 
-Adding vim packages
--------------------
-
-By and large, I like to use the Vim 8 built-in package manager. That means,
-essentially, to add a package (say `ap/vim-css-color`), I run something like
-
-    git submodule add https://github.com/ap/vim-css-color.git pack/ap/opt/csscolor
-
-That allows me to include the package in the `.vim/vimrc` using
-
-```viml
-packadd! csscolor
-```
-
-...which seems kind of neat.
-
 Caveats
 -------
 
