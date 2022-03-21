@@ -23,3 +23,4 @@ erlang 24.3
 elixir 1.13.3
 bat 0.20.0
 shellcheck 0.8.0
+jq 1.6
