@@ -38,6 +38,6 @@ packadd! limelight		" Even more focused text
 " }}}
 
 " Theme {{{
-set background=dark
-colorscheme gruvbox
+" set background=dark
+colorscheme iceberg
 " }}}
