@@ -94,3 +94,6 @@
 [submodule "vim/.vim/pack/prabirshrestha/opt/asyncompletelsp"]
 	path = vim/.vim/pack/prabirshrestha/opt/asyncompletelsp
 	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim
+[submodule "vim/.vim/pack/tpope/opt/rake"]
+	path = vim/.vim/pack/tpope/opt/rake
+	url = https://github.com/tpope/vim-rake
