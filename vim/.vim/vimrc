@@ -14,6 +14,17 @@ packadd! projectionist		" Honour a project-wide .projectionist.json
 packadd! repeat			" Make . work more often
 packadd! surround		" For changing brackets, quotes, etc
 packadd! unimpaired		" Handy [] mappings
+packadd! polyglot		" Loads of syntax and indent plugins
+" }}}
+
+" LSP and auto-linting {{{
+packadd! ale			" Asynchronous Linting Engine
+packadd! lsp			" Language Server Protocol
+packadd! lspale			" LSP for ALE
+" }}}
+
+" Specific language plugins {{{
+packadd! go				" Go goodness
 " }}}
 
 " Add-ons {{{
@@ -26,6 +37,6 @@ packadd! limelight		" Even more focused text
 
 " Theme {{{
 packadd! emoji			" Emoji support
-packadd! dracula		" Dark theme
-colorscheme dracula
+set background=dark
+colorscheme gruvbox
 " }}}

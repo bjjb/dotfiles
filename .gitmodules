@@ -67,3 +67,18 @@
 [submodule "vim/.vim/pack/junegunn/opt/emoji"]
 	path = vim/.vim/pack/junegunn/opt/emoji
 	url = https://github.com/junegunn/vim-emoji.git
+[submodule "vim/.vim/pack/sheerun/opt/polyglot"]
+	path = vim/.vim/pack/sheerun/opt/polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "vim/.vim/pack/dense-analysis/opt/ale"]
+	path = vim/.vim/pack/dense-analysis/opt/ale
+	url = https://github.com/dense-analysis/ale.git
+[submodule "vim/.vim/pack/prabirshrestha/opt/lsp"]
+	path = vim/.vim/pack/prabirshrestha/opt/lsp
+	url = https://github.com/prabirshrestha/vim-lsp.git
+[submodule "vim/.vim/pack/rhysd/opt/lspale"]
+	path = vim/.vim/pack/rhysd/opt/lspale
+	url = https://github.com/rhysd/vim-lsp-ale.git
+[submodule "vim/.vim/pack/fatih/opt/go"]
+	path = vim/.vim/pack/fatih/opt/go
+	url = https://github.com/fatih/vim-go.git
