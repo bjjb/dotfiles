@@ -1,24 +1,30 @@
 set nocompatible
 
+syntax on
+filetype plugin indent on
+
+set number
+set modeline
+set path=.,**
+
+set backspace=indent,eol,start
+
 " Settings {{{
-packadd! sensible		" Sane defaults
-packadd! sleuth			" Autodetected buffer settings
+" packadd! sensible	" Sane defaults
+" packadd! sleuth	" Autodetected buffer settings
 " }}}
 
 " General programming helpers {{{
-packadd! abolish	" Work with variants of words
-packadd! apathy		" Set some miscellaneous path vars
-packadd! commentary	" Better commenting
-packadd! endwise	" Adds `ends` to languages where it makes sense
-packadd! projectionist	" Honour a project-wide .projectionist.json
-packadd! repeat		" Make . work more often
-packadd! surround	" For changing brackets, quotes, etc
-packadd! unimpaired	" Handy [] mappings
-packadd! emmet		" Web snippets
-"packadd! polyglot	" Loads of syntax and indent plugins
-
-set number
-set relativenumber
+" packadd! abolish			" Work with variants of words
+" packadd! apathy			" Set some miscellaneous path vars
+packadd! commentary			" Better commenting
+" packadd! endwise			" Adds `ends` to languages where it makes sense
+" packadd! projectionist	" Honour a project-wide .projectionist.json
+" packadd! repeat			" Make . work more often
+" packadd! surround			" For changing brackets, quotes, etc
+" packadd! unimpaired		" Handy [] mappings
+" packadd! emmet			" Web snippets
+packadd! polyglot			" Loads of syntax and indent plugins
 " }}}
 
 " Specific language plugins {{{
@@ -37,14 +43,16 @@ set relativenumber
 " }}}
 
 " Add-ons {{{
-packadd! dadbod		" DB front-end
-packadd! fugitive	" Git front-end
-packadd! fzf		" Fuzzy finder
-packadd! goyo		" Focused text
-packadd! limelight	" Even more focused text
+" packadd! dadbod		" DB front-end
+" packadd! fugitive		" Git front-end
+" packadd! fzf			" Fuzzy finder
+" packadd! goyo			" Focused text
+" packadd! limelight	" Even more focused text
 " }}}
 
 " Theme {{{
-" set background=dark
-colorscheme iceberg
+packadd dracula
+colorscheme dracula
 " }}}
+
+" vi:sw=4:ts=4:tw=80
