@@ -6,39 +6,41 @@ packadd! sleuth			" Autodetected buffer settings
 " }}}
 
 " General programming helpers {{{
-packadd! abolish					" Work with variants of words
-packadd! apathy						" Set some miscellaneous path vars
-packadd! commentary				" Better commenting
-packadd! endwise					" Adds `ends` to languages where it makes sense
-packadd! projectionist		" Honour a project-wide .projectionist.json
-packadd! repeat						" Make . work more often
-packadd! surround					" For changing brackets, quotes, etc
-packadd! unimpaired				" Handy [] mappings
-packadd! polyglot					" Loads of syntax and indent plugins
+packadd! abolish	" Work with variants of words
+packadd! apathy		" Set some miscellaneous path vars
+packadd! commentary	" Better commenting
+packadd! endwise	" Adds `ends` to languages where it makes sense
+packadd! projectionist	" Honour a project-wide .projectionist.json
+packadd! repeat		" Make . work more often
+packadd! surround	" For changing brackets, quotes, etc
+packadd! unimpaired	" Handy [] mappings
+"packadd! polyglot	" Loads of syntax and indent plugins
 
 set number
 set relativenumber
 " }}}
 
 " Specific language plugins {{{
-packadd! crystal	" crystal
-packadd! go				" golang
-packadd! rake			" ruby
-packadd! rust			" rust
+" packadd! crystal	" crystal
+" packadd! go		" golang
+" packadd! rake		" ruby
+" packadd! rust		" rust
 " }}}
 
 " LSP and auto-linting {{{
-packadd! ale			" Asynchronous Linting Engine
-packadd! lsp			" Language Server Protocol
-packadd! lspale		" LSP for ALE
+" packadd! lsc		" Language Server Client (natebosch/vim-lsc)
+" packadd! mucomplete	" Minimalistic autocompleter (lifepillar/mucomplete)
+" packadd! ale		" Asynchronous Linting Engine (dense-analysis/ale)
+" packadd! lsp		" Language Server Protocol (prabirshrestha/vim-lsp)
+" packadd! lspale	" LSP for ALE (rhysd/vim-lsp-ale)
 " }}}
 
 " Add-ons {{{
-packadd! dadbod			" DB front-end
-packadd! fugitive		" Git front-end
-packadd! fzf			" Fuzzy finder
-packadd! goyo			" Focused text
-packadd! limelight		" Even more focused text
+packadd! dadbod		" DB front-end
+packadd! fugitive	" Git front-end
+packadd! fzf		" Fuzzy finder
+packadd! goyo		" Focused text
+packadd! limelight	" Even more focused text
 " }}}
 
 " Theme {{{
