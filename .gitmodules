@@ -106,3 +106,6 @@
 [submodule "vim/.vim/pack/lifepillar/opt/mucomplete"]
 	path = vim/.vim/pack/lifepillar/opt/mucomplete
 	url = https://github.com/lifepillar/vim-mucomplete.git
+[submodule "vim/.vim/pack/mattn/opt/emmet"]
+	path = vim/.vim/pack/mattn/opt/emmet
+	url = https://github.com/mattn/emmet-vim.git

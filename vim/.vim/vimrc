@@ -14,6 +14,7 @@ packadd! projectionist	" Honour a project-wide .projectionist.json
 packadd! repeat		" Make . work more often
 packadd! surround	" For changing brackets, quotes, etc
 packadd! unimpaired	" Handy [] mappings
+packadd! emmet		" Web snippets
 "packadd! polyglot	" Loads of syntax and indent plugins
 
 set number
