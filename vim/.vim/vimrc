@@ -45,6 +45,7 @@ packadd! polyglot			" Loads of syntax and indent plugins
 " Add-ons {{{
 " packadd! dadbod		" DB front-end
 " packadd! fugitive		" Git front-end
+" packadd! kubectl		" kubectl front-end
 " packadd! fzf			" Fuzzy finder
 " packadd! goyo			" Focused text
 " packadd! limelight	" Even more focused text
