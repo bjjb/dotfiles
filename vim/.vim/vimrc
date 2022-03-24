@@ -1,7 +1,10 @@
+let $VIMDIR="$HOME/.vim"
+let $RC="$HOME/.vim/vimrc"
+
 set nocompatible
 
-syntax on
 filetype plugin indent on
+syntax on
 
 set number
 set modeline
@@ -9,51 +12,57 @@ set path=.,**
 
 set backspace=indent,eol,start
 
+set incsearch
+
+" NOTE: `packadd!` adds a package to the 'runtimepath', while `packadd` also
+" sources the plugin files.
+
 " Settings {{{
-" packadd! sensible	" Sane defaults
-" packadd! sleuth	" Autodetected buffer settings
+" packadd! sensible " Sane defaults
+" packadd! sleuth   " Autodetected buffer settings
 " }}}
 
 " General programming helpers {{{
-" packadd! abolish			" Work with variants of words
-" packadd! apathy			" Set some miscellaneous path vars
-packadd! commentary			" Better commenting
-" packadd! endwise			" Adds `ends` to languages where it makes sense
-" packadd! projectionist	" Honour a project-wide .projectionist.json
-" packadd! repeat			" Make . work more often
-" packadd! surround			" For changing brackets, quotes, etc
-" packadd! unimpaired		" Handy [] mappings
-" packadd! emmet			" Web snippets
-packadd! polyglot			" Loads of syntax and indent plugins
+packadd! commentary         " Better commenting; always useful.
+packadd! repeat             " Allow plugins to make '.' work with their mappings
+packadd! abolish            " Helpers for mutating the word under the cussor
+" packadd! apathy           " Set some miscellaneous path vars
+packadd! endwise            " Adds `ends` to languages where it makes sense
+packadd! projectionist      " Honour a project-wide .projectionist.json
+" packadd! surround         " For changing brackets, quotes, etc
+" packadd! unimpaired       " Handy [] mappings
+" packadd! emmet            " Web snippets
+packadd! polyglot           " Loads of syntax and indent plugins
 " }}}
 
 " Specific language plugins {{{
-" packadd! crystal	" crystal
-" packadd! go		" golang
-" packadd! rake		" ruby
-" packadd! rust		" rust
+" packadd! crystal  " crystal
+" packadd! go       " golang
+" packadd! rake     " ruby
+" packadd! rust     " rust
 " }}}
 
 " LSP and auto-linting {{{
-" packadd! lsc		" Language Server Client (natebosch/vim-lsc)
-" packadd! mucomplete	" Minimalistic autocompleter (lifepillar/mucomplete)
-" packadd! ale		" Asynchronous Linting Engine (dense-analysis/ale)
-" packadd! lsp		" Language Server Protocol (prabirshrestha/vim-lsp)
-" packadd! lspale	" LSP for ALE (rhysd/vim-lsp-ale)
+" packadd! lsc          " Language Server Client (natebosch/vim-lsc)
+" packadd! mucomplete   " Minimalistic autocompleter (lifepillar/mucomplete)
+" packadd! ale          " Asynchronous Linting Engine (dense-analysis/ale)
+" packadd! lsp          " Language Server Protocol (prabirshrestha/vim-lsp)
+" packadd! lspale       " LSP for ALE (rhysd/vim-lsp-ale)
 " }}}
 
 " Add-ons {{{
-" packadd! dadbod		" DB front-end
-" packadd! fugitive		" Git front-end
-" packadd! kubectl		" kubectl front-end
-" packadd! fzf			" Fuzzy finder
-" packadd! goyo			" Focused text
-" packadd! limelight	" Even more focused text
+" packadd! dadbod       " DB front-end
+" packadd! fugitive     " Git front-end
+" packadd! kubectl      " kubectl front-end
+" packadd! fzf          " Fuzzy finder
+" packadd! goyo         " Focused text
+" packadd! limelight    " Even more focused text
 " }}}
 
 " Theme {{{
-packadd dracula
+highlight StatusLine ctermbg=none cterm=bold
+packadd! dracula
 colorscheme dracula
 " }}}
 
-" vi:sw=4:ts=4:tw=80
+" vi:sw=4:ts=4:tw=80:expandtab
