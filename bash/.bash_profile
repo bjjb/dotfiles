@@ -8,6 +8,10 @@ hash starship 2>/dev/null && . <(starship init bash)
 hash gpg      2>/dev/null && export GPG_TTY="$(tty)"
 hash aws      2>/dev/null && complete -C aws_completer aws
 hash kubectl  2>/dev/null && . <(kubectl completion bash)
-hash gopass   2>/dev/null && . <(gopass completion bash)
-
+if hash gopass 2>/dev/null
+then
+	. <(gopass completion bash)
+	otp() { gopass list --flat | grep 'otp$' | fzf | xargs gopass otp -o -c; }
+	pass() { gopass list --flat | fzf | xargs gopass -o -c; }
+fi
 # vi:ft=bash
