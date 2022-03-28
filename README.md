@@ -9,15 +9,19 @@ whatnot. I use it to reasonable effect on FreeBSD, Ubuntu and MacOS.
 Installation
 ------------
 
-(You'll need [stow][].) After cloning the repo to somewhere permanent (I
+You'll need [stow][] and [git][].
+
+After cloning the repo to somewhere permanent (I
 recommend `$XDG_CONFIG_HOME/dotfiles` on most Unixes, or
 `~/Library/Preferences/io.github.bjjb/dotfiles` on MacOS), cd into it.
 
 Depending on your shell/editor/whatever preferences, run
 
-    stow -t $HOME bash asdf vim x
+    stow -t $HOME bash asdf vim X
 
-That'll set up symlinks to config files for [Bash]
+That'll set up symlinks to config files for [Bash][], [asdf][], [vim][] and X
+in $HOME.  `stow` takes care of ensuring that the links and any necessary
+directories are set up appropriately. See stow(1) for more details.
 
 Caveats
 -------
