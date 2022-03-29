@@ -31,3 +31,4 @@ chezscheme 9.5
 deno 1.20.2
 postgres 14.2
 yarn 1.22.5
+sbcl 2.2.2
