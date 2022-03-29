@@ -112,3 +112,6 @@
 [submodule "vim/.vim/pack/rottencandy/opt/kubectl"]
 	path = vim/.vim/pack/rottencandy/opt/kubectl
 	url = https://github.com/rottencandy/vimkubectl.git
+[submodule "vim/.vim/pack/tpope/opt/eunuch"]
+	path = vim/.vim/pack/tpope/opt/eunuch
+	url = https://github.com/tpope/vim-eunuch
