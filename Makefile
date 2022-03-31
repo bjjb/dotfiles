@@ -1,4 +1,4 @@
 .PHONY: all
 
 all:
-	stow -t $(HOME) bash asdf tmux vim x
+	stow -t $(HOME) bash asdf tmux vim X starship
