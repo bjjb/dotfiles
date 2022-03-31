@@ -33,3 +33,4 @@ postgres 14.2
 yarn 1.22.5
 sbcl 2.2.2
 hey v0.1.4
+ag 2.2.0

@@ -42,7 +42,7 @@ nnoremap <Esc><Esc> :nohlsearch<CR>
 
 set mouse=a
 " Plugins {{{
-packadd sensible " Sane defaults
+packadd sensible " Sane defaults (in case I forgot any from above)
 packadd polyglot " Additional language settings
 packadd sleuth " Autodetected buffer settings
 packadd commentary " Better commenting
@@ -75,6 +75,7 @@ packadd goyo " Focused text
 packadd limelight " Even more focused text
 " Themes {{{
 packadd gruvbox
+packadd dracula
 packadd jellybeans
 packadd iceberg
 packadd solarized
