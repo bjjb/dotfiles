@@ -70,7 +70,7 @@ packadd eunuch "UNIX commands
 packadd dadbod " DB front-end
 packadd kubectl " Kubectl front-end
 packadd fugitive " Git front-end
-packadd fzf " Fuzzy finder
+packadd fzf " Fuzzy finder 🙂
 packadd goyo " Focused text
 packadd limelight " Even more focused text
 " Themes {{{
@@ -84,4 +84,23 @@ packadd solarized
 colorscheme iceberg
 highlight StatusLine ctermbg=none cterm=bold
 
+" Emoji digraphs
+execute 'digraph :x 128544'
+execute 'digraph :) 128578'
+execute 'digraph :D 128512'
+execute 'digraph =D 128513'
+execute 'digraph :P 128523'
+execute 'digraph :O 128558'
+execute 'digraph :/ 128533'
+execute 'digraph :( 128577'
+execute 'digraph =( 128543'
+execute 'digraph :E 128556'
+execute 'digraph /\ 128591'
+execute 'digraph \/ 129335'
+execute 'digraph :\| 128528'
+execute 'digraph =\| 128529'
+execute 'digraph -k 128529'
+execute 'digraph -j 128071'
+execute 'digraph -h 128072'
+execute 'digraph -l 128073'
 " vi:sw=4:ts=4:tw=80
