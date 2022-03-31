@@ -115,3 +115,6 @@
 [submodule "vim/.vim/pack/tpope/opt/eunuch"]
 	path = vim/.vim/pack/tpope/opt/eunuch
 	url = https://github.com/tpope/vim-eunuch
+[submodule "vim/.vim/pack/altercation/opt/solarized"]
+	path = vim/.vim/pack/altercation/opt/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

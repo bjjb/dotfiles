@@ -6,45 +6,52 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
-set incsearch
 set number
+set hidden
 set modeline
 set path=.,**
-set backspace=indent,eol,start
+set textwidth=79
+
+set background=dark
+set t_Co=256 " XXX vim-sensible will set this to 8 if unset without a $TERM!
 
 " Plugins {{{
-" packadd! sensible " Sane defaults
-" packadd! sleuth " Autodetected buffer settings
-packadd! commentary " Better commenting
-packadd! surround " For changing brackets, quotes, etc
-packadd! projectionist " Honour a project-wide .projectionist.json
-packadd! repeat " Make . work more often
-" packadd! abolish " Work with variants of words
-" packadd! apathy " Set some miscellaneous path vars
-" packadd! endwise " Adds `ends` to languages where it makes sense
-" packadd! unimpaired " Handy [] mappings
+packadd sensible " Sane defaults
+packadd polyglot " Additional language settings
+packadd sleuth " Autodetected buffer settings
+packadd commentary " Better commenting
+packadd surround " For changing brackets, quotes, etc
+packadd projectionist " Honour a project-wide .projectionist.json
+packadd repeat " Make . work more often
+packadd abolish " Work with variants of words
+packadd apathy " Set some miscellaneous path vars
+packadd endwise " Adds `ends` to languages where it makes sense
+packadd unimpaired " Handy [] mappings
 " Language specific plugins
-packadd! emmet " Web snippets
-" packadd! crystal " crystal
-" packadd! go " golang
-" packadd! rake " ruby
-" packadd! rust " rust
+packadd crystal " crystal
+packadd go " golang
+packadd rake " ruby
+packadd rust " rust
 " LSP and auto-linting
-" packadd! lsc " Language Server Client (natebosch/vim-lsc)
-" packadd! mucomplete " Minimalistic autocompleter (lifepillar/mucomplete)
-" packadd! ale " Asynchronous Linting Engine (dense-analysis/ale)
-" packadd! lsp " Language Server Protocol (prabirshrestha/vim-lsp)
-" packadd! lspale " LSP for ALE (rhysd/vim-lsp-ale)
+" packadd lsc " Language Server Client (natebosch/vim-lsc)
+" packadd mucomplete " Minimalistic autocompleter (lifepillar/mucomplete)
+" packadd ale " Asynchronous Linting Engine (dense-analysis/ale)
+" packadd lsp " Language Server Protocol (prabirshrestha/vim-lsp)
+" packadd lspale " LSP for ALE (rhysd/vim-lsp-ale)
 " Add-ons
-" packadd! dadbod " DB front-end
-" packadd! fugitive " Git front-end
-" packadd! fzf " Fuzzy finder
-packadd! goyo " Focused text
-packadd! limelight " Even more focused text
-" Theme {{{
-" packadd gruvbox
-" packadd jellybeans
+packadd emmet " Web snippets
+packadd eunuch "UNIX commands
+packadd dadbod " DB front-end
+packadd kubectl " Kubectl front-end
+packadd fugitive " Git front-end
+packadd fzf " Fuzzy finder
+packadd goyo " Focused text
+packadd limelight " Even more focused text
+" Themes {{{
+packadd gruvbox
+packadd jellybeans
 packadd iceberg
+packadd solarized
 " }}}
 
 colorscheme iceberg
