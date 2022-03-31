@@ -2,16 +2,37 @@ let $VIMDIR="$HOME/.vim"
 let $RC="$HOME/.vim/vimrc"
 
 set nocompatible
+set noerrorbells
+set visualbell
+set backspace=indent,eol,start
+set history=1000
+
+set laststatus=2
+set showcmd
+set showmode
+set ruler
+set wildmenu
+
+set hidden
+set autoread
 
 filetype plugin indent on
 syntax on
 
-set number
-set hidden
-set ruler
-set modeline
 set path=.,**
+set nowrap
 set textwidth=79
+set shiftwidth=4 tabstop=4
+set autoindent
+set exrc
+set modeline
+set undofile
+set undodir=~/.cache/bin/undo
+set directory=~/.cache/vim/swp//
+set backupdir=~/.cache/vim/backup//
+
+set scrolloff=3
+set sidescrolloff=5
 
 set background=dark
 set t_Co=256 " XXX vim-sensible will set this to 8 if unset without a $TERM!
@@ -19,6 +40,7 @@ set t_Co=256 " XXX vim-sensible will set this to 8 if unset without a $TERM!
 set incsearch ignorecase smartcase hlsearch
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
+set mouse=a
 " Plugins {{{
 packadd sensible " Sane defaults
 packadd polyglot " Additional language settings
