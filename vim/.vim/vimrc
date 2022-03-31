@@ -8,12 +8,16 @@ syntax on
 
 set number
 set hidden
+set ruler
 set modeline
 set path=.,**
 set textwidth=79
 
 set background=dark
 set t_Co=256 " XXX vim-sensible will set this to 8 if unset without a $TERM!
+
+set incsearch ignorecase smartcase hlsearch
+nnoremap <Esc><Esc> :nohlsearch<CR>
 
 " Plugins {{{
 packadd sensible " Sane defaults
