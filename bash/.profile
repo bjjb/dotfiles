@@ -1,5 +1,6 @@
 # Sourced by POSIX shells
 
+export EDITOR=vim
 # Include ~/bin in the path
 [ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
 # Kill ssh-agent on exit (if it's running)
