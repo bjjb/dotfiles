@@ -27,7 +27,6 @@ jq 1.6
 kubectl 1.23.5
 krew 0.4.3
 racket 8.4
-chezscheme 9.5
 deno 1.20.2
 postgres 14.2
 yarn 1.22.5
