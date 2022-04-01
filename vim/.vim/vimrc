@@ -11,10 +11,12 @@ set laststatus=2
 set showcmd
 set showmode
 set ruler
+set number
 set wildmenu
 
 set hidden
 set autoread
+
 
 filetype plugin indent on
 syntax on
