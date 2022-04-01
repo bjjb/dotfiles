@@ -27,7 +27,7 @@ set autoindent
 set exrc
 set modeline
 set undofile
-set undodir=~/.cache/bin/undo
+set undodir=~/.cache/vim/undo
 set directory=~/.cache/vim/swp//
 set backupdir=~/.cache/vim/backup//
 
