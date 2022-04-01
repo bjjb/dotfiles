@@ -4,3 +4,7 @@ dotfiles() {
 }
 
 [[ -f "$HOME/.asdf/asdf.sh" ]] && . "$HOME/.asdf/asdf.sh"
+
+update-dotfiles() {
+	make -C "$(dotfiles)"
+}
