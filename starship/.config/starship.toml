@@ -1,1 +1,4 @@
 command_timeout = 1000
+
+[kubernetes]
+disabled = false
