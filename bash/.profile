@@ -1,5 +1,8 @@
 # Sourced by POSIX shells
 
+# Language
+export LANG=en_IE.UTF-8
+# Default editor
 export EDITOR=vim
 # Include ~/bin in the path
 [ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
