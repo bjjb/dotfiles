@@ -1,0 +1,5 @@
+# Produce a list of completions on a single tab (rather than 2)
+set show-all-if-ambiguous on
+
+# Works like ls -F
+set visible-stats on
