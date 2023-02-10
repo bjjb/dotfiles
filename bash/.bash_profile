@@ -8,8 +8,9 @@ hash gpg       2>/dev/null && export GPG_TTY="$(tty)"
 hash starship  2>/dev/null && . <(starship init bash)
 
 # Completion from asdf and the system
-[[ -f "$HOME/.asdf/completions/asdf.bash" ]] && . "$HOME/.asdf/completions/asdf.bash"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[[ -r "/usr/local/share/bash-completion/bash_completion.sh" ]] && . "/usr/local/share/bash-completion/bash_completion.sh"
+[[ -f "$HOME/.asdf/completions/asdf.bash" ]] && . "$HOME/.asdf/completions/asdf.bash"
 
 # Completion for apps that output their own completion (i.e., go cobra apps)
 for x in minikube kubectl cntb fluxctl gopass
@@ -203,6 +204,16 @@ ns() {
 # Decodes a JWT using jq(1).
 jwt () { 
 	jq -R 'split(".") | .[0],.[1] | @base64d | fromjson' $@
+}
+
+# Gets the CPU temperature
+how_hot_is_the_core() {
+	os="$(uname -o)"
+	case "$os" in
+		"FreeBSD") sysctl -a dev.cpu | grep temperature ;;
+		"*Linux") cat /sys/class/thermal/thermal_zone?/temp ;;
+		*) printf "I don't know how to get the temperature on %s\n" os ;;
+	esac
 }
 
 # vi:ft=bash
