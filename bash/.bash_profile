@@ -208,10 +208,11 @@ jwt () {
 
 # Gets the CPU temperature
 how_hot_is_the_core() {
-	os="$(uname -o)"
+	os="$(uname)"
 	case "$os" in
 		"FreeBSD") sysctl -a dev.cpu | grep temperature ;;
-		"*Linux") cat /sys/class/thermal/thermal_zone?/temp ;;
+		"Linux") cat /sys/class/thermal/thermal_zone?/temp ;;
+		"Darwin") sudo powermetrics --samplers smc ;;
 		*) printf "I don't know how to get the temperature on %s\n" os ;;
 	esac
 }
