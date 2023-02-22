@@ -1,5 +1,5 @@
 starship 0.58.0
-minikube 1.25.2
+minikube 1.29.0
 fd 8.3.2
 fzf 0.29.0
 zig 0.9.1
@@ -24,7 +24,7 @@ elixir 1.13.3
 bat 0.20.0
 shellcheck 0.8.0
 jq 1.6
-kubectl 1.20.15
+kubectl 1.26.1
 racket 8.4
 deno 1.20.2
 postgres 14.3
@@ -41,3 +41,5 @@ gradle 7.5.1
 pulumi 3.40.2
 direnv 2.32.1
 helm 3.8.2
+vim 9.0.1339
+neovim stable

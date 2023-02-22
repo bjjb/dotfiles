@@ -75,6 +75,7 @@ packadd fugitive " Git front-end
 packadd fzf " Fuzzy finder 🙂
 packadd goyo " Focused text
 packadd limelight " Even more focused text
+packadd dispatch " Run commands in the background
 " Themes {{{
 packadd gruvbox
 packadd dracula
