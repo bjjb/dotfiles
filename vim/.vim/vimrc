@@ -60,6 +60,7 @@ packadd crystal " crystal
 packadd go " golang
 packadd rake " ruby
 packadd rust " rust
+packadd v " v
 " LSP and auto-linting
 " packadd lsc " Language Server Client (natebosch/vim-lsc)
 " packadd mucomplete " Minimalistic autocompleter (lifepillar/mucomplete)
