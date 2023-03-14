@@ -217,4 +217,7 @@ how_hot_is_the_core() {
 	esac
 }
 
+psql () {
+	docker run --rm -it -e PGHOST=$PGHOST -e PGUSER=$PGUSER -e PGPASSWORD=$PGPASSWORD -e PGDATABASE=$PGDATABASE postgres:alpine psql $@
+}
 # vi:ft=bash
