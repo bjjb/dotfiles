@@ -6,6 +6,9 @@ hash gpg       2>/dev/null && export GPG_TTY="$(tty)"
 
 # Initializes starship (the fancy prompt)
 hash starship  2>/dev/null && . <(starship init bash)
+hash direnv  2>/dev/null && . <(direnv hook bash)
+hash pbcopy 2>/dev/null || hash xclip 2>/dev/null && pbcopy() { xclip -selection clipboard -i; }
+hash pbpaste 2>/dev/null || hash xclip 2>/dev/null && pbpaste() { xclip -selection clipboard -o; }
 
 # Completion from asdf and the system
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
@@ -44,6 +47,7 @@ export HISTIGNORE="&"
 urlenc() {
 	jq -srR '@uri' | sed 's/%0A$//'
 }
+
 
 # Runs a shell in a one-shot k8s pod in the current namespace
 k8srun() {
