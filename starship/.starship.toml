@@ -2,3 +2,6 @@ command_timeout = 2000
 
 [kubernetes]
 disabled = false
+
+[nodejs]
+symbol = '📦 '
