@@ -4,6 +4,12 @@
 export LANG=en_IE.UTF-8
 # Default editor
 export EDITOR=vim
+# Include homebrew in the path, if it's available.
+if [ "$(uname)" = "Darwin" ]
+then
+	[ -d "/opt/homebrew/bin" ] && PATH="/opt/homebrew/bin:$PATH"
+	[ -d "/opt/homebrew/sbin" ] && PATH="/opt/homebrew/sbin:$PATH"
+fi
 # Include ~/bin in the path
 [ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
 # Kill ssh-agent on exit (if it's running)

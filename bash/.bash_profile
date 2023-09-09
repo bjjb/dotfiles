@@ -1,19 +1,29 @@
-[[ -f "$HOME/.profile" ]] && . "$HOME/.profile"
-[[ -f "$HOME/.bashrc" ]]  && . "$HOME/.bashrc"
+# Include /opt/homebrew, if it exists, on Darwin
+[ -f "$HOME/.profile" ] && . "$HOME/.profile"
+[ -f "$HOME/.bashrc" ]  && . "$HOME/.bashrc"
 
 # Initializes GnuPG
-hash gpg       2>/dev/null && export GPG_TTY="$(tty)"
+hash gpg 2>/dev/null && export GPG_TTY="$(tty)"
 
 # Initializes starship (the fancy prompt)
-hash starship  2>/dev/null && . <(starship init bash)
-hash direnv  2>/dev/null && . <(direnv hook bash)
-hash pbcopy 2>/dev/null || hash xclip 2>/dev/null && pbcopy() { xclip -selection clipboard -i; }
-hash pbpaste 2>/dev/null || hash xclip 2>/dev/null && pbpaste() { xclip -selection clipboard -o; }
+hash starship 2>/dev/null && . <(starship init bash)
+hash direnv 2>/dev/null && . <(direnv hook bash)
+
+if [ "$(uname)" != "Darwin" ]; then
+	hash xclip 2>/dev/null && pbcopy() { xclip -selection clipboard -i; }
+	hash xclip 2>/dev/null && pbpaste() { xclip -selection clipboard -o; }
+fi
+
+# A function to generate a random string, (using jot and rs).
+hash random 2>/dev/null || { hash jot 2>/dev/null && hash rs 2>/dev/null; } && random() {
+	jot -r -c "${1:-16}" A z | rs -g 0 "${1:-16}"
+}
 
 # Completion from asdf and the system
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-[[ -r "/usr/local/share/bash-completion/bash_completion.sh" ]] && . "/usr/local/share/bash-completion/bash_completion.sh"
-[[ -f "$HOME/.asdf/completions/asdf.bash" ]] && . "$HOME/.asdf/completions/asdf.bash"
+hash brew 2>/dev/null && [ -r "$(brew --prefix)/etc/bash_completion" ] && . "$(brew --prefix)/etc/bash_completion"
+[ -r "/etc/profile.d/bash_completion.sh" ] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[ -r "/usr/local/share/bash-completion/bash_completion.sh" ] && . "/usr/local/share/bash-completion/bash_completion.sh"
+[ -f "$HOME/.asdf/completions/asdf.bash" ] && . "$HOME/.asdf/completions/asdf.bash"
 
 # Completion for apps that output their own completion (i.e., go cobra apps)
 for x in minikube kubectl cntb fluxctl gopass
@@ -28,17 +38,23 @@ do
 done
 
 # Additional gopass shortcuts using fzf
+if hash pass 2>/dev/null
+then
+	pw() { find "$HOME/.password-store/" -type f -not -name '.*' | awk -F "//" '{ print $2 }' | sed 's/\.gpg$//' | fzf -1 -q "$1" | xargs pass show -c; }
+	otp() { find "$HOME/.password-store/" -type f -not -name '.*' | awk -F "//" '/otp\.gpg$/ { print $2 }' | sed 's/\.gpg$//' | fzf -1 -q "$1" | xargs pass otp -c; }
+fi
+
 if hash gopass 2>/dev/null
 then
-	otp() { gopass list --flat | grep 'otp$' | fzf -1 -q "$1" | xargs gopass otp -o -c; }
 	pass() { gopass list --flat | fzf -1 -q "$1" | xargs gopass -o -c; }
+	otp() { gopass list --flat | grep 'otp$' | fzf -1 -q "$1" | xargs gopass otp -o -c; }
 fi
 
 # Initializes docker from minikube
-if hash minikube  2>/dev/null
-then
-	. <(minikube docker-env)
-fi
+# if hash minikube  2>/dev/null
+# then
+# 	. <(minikube docker-env)
+# fi
 
 # Ignore duplicate commands in history.
 export HISTIGNORE="&"
@@ -138,7 +154,7 @@ nstoken() {
 
 # Makes a call to GitLab
 gl() {
-	token="$(gopass -o gitlab.com/$USER/token)"
+	token="$(git lab token)"
 	path="${1?path required}"
 	curl -gs -H "Authorization: Bearer ${token}" \
 		"https://gitlab.com/api/v4/$path"
@@ -221,7 +237,13 @@ how_hot_is_the_core() {
 	esac
 }
 
-psql () {
+# Refresh your AWS cached credentials
+reaws() {
+	ns; env -u AWS_PROFILE aws --profile "${AWS_PROFILE?required}" sts get-caller-identity
+}
+
+hash brew 2>/dev/null && [ -d "$(brew --prefix)/opt/postgresql@15/bin" ] && PATH="${PATH}:$(brew --prefix)/opt/postgresql@15/bin"
+hash psql 2>/dev/null || psql () {
 	docker run --rm -it -e PGHOST=$PGHOST -e PGUSER=$PGUSER -e PGPASSWORD=$PGPASSWORD -e PGDATABASE=$PGDATABASE postgres:alpine psql $@
 }
 # vi:ft=bash
