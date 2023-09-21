@@ -26,7 +26,7 @@ hash brew 2>/dev/null && [ -r "$(brew --prefix)/etc/bash_completion" ] && . "$(b
 [ -f "$HOME/.asdf/completions/asdf.bash" ] && . "$HOME/.asdf/completions/asdf.bash"
 
 # Completion for apps that output their own completion (i.e., go cobra apps)
-for x in minikube kubectl cntb fluxctl gopass
+for x in minikube kubectl cntb fluxctl gopass glab
 do
 	hash "$x" 2>/dev/null && . <($x completion bash)
 done
@@ -211,7 +211,7 @@ ns() {
 	case "$cmd" in
 		otp)
 			# Uses the OTP function 👆 to get the newstore-sso.okta.com OTP
-			otp newstoreokta
+			otp newstoreoktabb
 			return 0
 			;;
 		*)
