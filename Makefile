@@ -10,4 +10,4 @@ all:
 	git submodule update
 	mkdir -p $(VIM_CACHE)/backup $(VIM_CACHE)/swp
 	stow -t $(HOME) bash asdf tmux vim X starship
-	stow -t $(XDG_CONFIG_HOME) starship nvim ssh
+	stow -t $(XDG_CONFIG_HOME) starship nvim ssh openbox

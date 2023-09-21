@@ -8,3 +8,5 @@ dotfiles() {
 update-dotfiles() {
 	make -C "$(dotfiles)"
 }
+
+[ -d $HOME/.local/lib/webos/bin ] && PATH=$PATH:$HOME/.local/lib/webos/bin

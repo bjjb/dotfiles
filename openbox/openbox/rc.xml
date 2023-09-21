@@ -314,11 +314,40 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
-    <keybind key="W-e">
+    <keybind key="W-t">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Thunar</name>
+          <name>Terminal</name>
+        </startupnotify>
+        <command>xterm</command>
+      </action>
+    </keybind>
+    <keybind key="XF86HomePage">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Web Browser</name>
+          <wmclass>Firefox</wmclass>
+        </startupnotify>
+        <command>firefox</command>
+      </action>
+    </keybind>
+    <keybind key="W-w">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Web Browser</name>
+          <wmclass>Firefox</wmclass>
+        </startupnotify>
+        <command>firefox</command>
+      </action>
+    </keybind>
+    <keybind key="W-f">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>File Browser</name>
         </startupnotify>
         <command>thunar</command>
       </action>

@@ -1,0 +1,3 @@
+#!/bin/sh
+# Openbox autostart
+xwallpaper --daemon --zoom .wallpaper
