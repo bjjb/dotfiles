@@ -5,3 +5,6 @@ disabled = false
 
 [nodejs]
 symbol = '📦 '
+
+[docker-context]
+disabled = true
