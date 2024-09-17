@@ -1,22 +1,18 @@
 let $VIMDIR="$HOME/.vim"
 let $RC="$HOME/.vim/vimrc"
 
-set nocompatible
-set noerrorbells
-set visualbell
-set backspace=indent,eol,start
-set history=1000
-
-set laststatus=2
-set showcmd
-set showmode
-set ruler
-set number
-set wildmenu
-
-set hidden
-set autoread
-
+" Compatability
+set nocp
+" No error bells, only a visual bell
+set noeb vb
+" Fix backspace behaviour
+set bs=indent,eol,start
+" Keep 1000 items in history
+set hi=1000
+" Status bar
+set ls=2 sc sft sm smd ru nu wmnu 
+" Buffer loading
+set hid ar
 
 filetype plugin indent on
 syntax on
@@ -36,31 +32,28 @@ set backupdir=~/.cache/vim/backup//
 set scrolloff=3
 set sidescrolloff=5
 
-set background=dark
-set t_Co=256 " XXX vim-sensible will set this to 8 if unset without a $TERM!
-
 set incsearch ignorecase smartcase hlsearch
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
 set mouse=a
 " Plugins {{{
-packadd sensible " Sane defaults (in case I forgot any from above)
-packadd polyglot " Additional language settings
-packadd sleuth " Autodetected buffer settings
-packadd commentary " Better commenting
-packadd surround " For changing brackets, quotes, etc
-packadd projectionist " Honour a project-wide .projectionist.json
-packadd repeat " Make . work more often
-packadd abolish " Work with variants of words
-packadd apathy " Set some miscellaneous path vars
-packadd endwise " Adds `ends` to languages where it makes sense
-packadd unimpaired " Handy [] mappings
+packadd sensible        " Sane defaults (in case I forgot any from above)
+packadd polyglot        " Additional language settings
+packadd sleuth          " Autodetected buffer settings
+packadd commentary      " Better commenting
+packadd surround        " For changing brackets, quotes, etc
+packadd projectionist   " Honour a project-wide .projectionist.json
+packadd repeat          " Make . work more often
+packadd abolish         " Work with variants of words
+packadd apathy          " Set some miscellaneous path vars
+packadd endwise         " Adds `ends` to languages where it makes sense
+packadd unimpaired      " Handy [] mappings
 " Language specific plugins
-packadd crystal " crystal
-packadd go " golang
-packadd rake " ruby
-packadd rust " rust
-packadd v " v
+packadd crystal         " crystal
+packadd go              " golang
+packadd rake            " ruby
+packadd rust            " rust
+packadd v               " v
 " LSP and auto-linting
 " packadd lsc " Language Server Client (natebosch/vim-lsc)
 " packadd mucomplete " Minimalistic autocompleter (lifepillar/mucomplete)
@@ -85,14 +78,20 @@ packadd iceberg
 packadd solarized
 " }}}
 
-colorscheme iceberg
-highlight StatusLine ctermbg=none cterm=bold
+colorscheme habamax
+
+set background=dark
+set t_Co=256 " XXX vim-sensible will set this to 8 if unset without a $TERM!
+set termguicolors
+highlight! StatusLine ctermbg=NONE cterm=BOLD
+highlight! Normal ctermbg=NONE guibg=NONE
+highlight! NonText ctermfg=NONE ctermbg=NONE guibg=NONE
 
 " Emoji digraphs
-execute 'digraph :x 128544'
-execute 'digraph :) 128578'
+execute 'digraph :x 128544' 
+execute 'digraph :) 128578' 
 execute 'digraph :D 128512'
-execute 'digraph =D 128513'
+execute 'digraph =D 128513' 
 execute 'digraph :P 128523'
 execute 'digraph :O 128558'
 execute 'digraph :/ 128533'
