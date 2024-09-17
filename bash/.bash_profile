@@ -61,7 +61,12 @@ export HISTIGNORE="&"
 
 # Uses jq to URL encode the input
 urlenc() {
-	jq -srR '@uri' | sed 's/%0A$//'
+	if [ -t 0 ]
+	then
+		printf "%s" "$*" | urlenc
+	else
+		jq -srR '@uri' | sed 's/%0A$//'
+	fi
 }
 
 
@@ -138,8 +143,8 @@ k8sdbcreds() {
 k8socat() {
 	target="${1?target (HOST:PORT) required}"
 	listen="${2?listener port required}"
-	name="${3?-socat-${USER}}"
-	kubectl run "${name}-$(date +%s)" --port "$port" --image public.ecr.aws/docker/library/alpine \
+	name="${3:-${USER}-socat-$(date +%s)}"
+	kubectl run "${name}" --port "$port" --image public.ecr.aws/docker/library/alpine \
 		--overrides '{"apiVersion":"v1","metadata":{"annotations":{"sidecar.istio.io/inject":"false"}}}' \
 		-- sh -c "apk add socat ; socat -dd 'tcp4-listen:$listen,fork,reuseaddr' 'tcp4:$target'"
 }
@@ -191,16 +196,16 @@ export AWS_SESSION_TOKEN='%s'"
 }
 
 # Lists paths up to this one. For example:
-# $ paths a/b/c
+# $ pathtree a/b/c
 # a
 # a/b
 # a/b/c
-paths() {
+pathtree() {
 	case "$1" in
-		"") paths "$(pwd)" ;;
+		"") pathtree "$(pwd)" ;;
 		"/") echo "/"; return ;;
 		".") return ;;
-		*) paths "$(dirname "$1")" ;;
+		*) pathtree "$(dirname "$1")" ;;
 	esac
 	echo "$1"
 }

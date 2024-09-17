@@ -10,6 +10,8 @@ if [ "$(uname)" = "Darwin" ]
 then
 	[ -d "/opt/homebrew/bin" ] && PATH="/opt/homebrew/bin:$PATH"
 	[ -d "/opt/homebrew/sbin" ] && PATH="/opt/homebrew/sbin:$PATH"
+	# Silences `ld: warning: no platform load command found in ...`
+	export CRYSTAL_OPTS=--link-flags=-ld_classic
 fi
 
 # Include ~/bin in the path
